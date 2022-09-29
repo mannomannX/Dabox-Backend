@@ -58,9 +58,7 @@ const  createGuestsTable  = () => {
         CREATE TABLE IF NOT EXISTS guests (
         id integer PRIMARY KEY,
         party_id integer,
-        guest_id integer,
-
-)`;
+        guest_id integer)`;
 
     return  database.run(sqlQuery);
 }
