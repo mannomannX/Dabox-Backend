@@ -24,6 +24,7 @@ const  createUsersTable  = () => {
     const  sqlQuery  =  `
         CREATE TABLE IF NOT EXISTS users (
         id integer PRIMARY KEY,
+        name text,
         email text UNIQUE,
         password text,
         profile_image blob)`;
@@ -81,8 +82,6 @@ createPartyTable();
 createBoxTable();
 createGuestsTable();
 
-createBoxTable()
-
 router.post('/create-party', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
@@ -108,25 +107,6 @@ router.post('/create-party', (req, res) => {
         res.status(401).send("Server error!");
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 router.get('/', (req, res) => {
     res.status(200).send('This is an authentication server');
