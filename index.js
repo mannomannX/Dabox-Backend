@@ -82,14 +82,14 @@ router.post('/register', (req, res) => {
             const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
                 expiresIn:  expiresIn
             });
-            res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn          
-            });
+            res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn, status: "ok" });
         });
     });
 });
 
 
 router.post('/login', (req, res) => {
+    console.log(req.body)
     const  email  =  req.body.email;
     const  password  =  req.body.password;
     findUserByEmail(email, (err, user)=>{
@@ -103,16 +103,27 @@ router.post('/login', (req, res) => {
         const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
             expiresIn:  expiresIn
         });
-        res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn});
+        res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn, status: "ok" });
     });
 });
 
 router.post('/check-login', (req, res) => {
-    let decodedJWT = jwt.decode(req.body.access_token);
-    //decodedJWT.id
-    let ablaufdatum = moment.unix(decodedJWT.exp).format();
-    console.log(ablaufdatum);
-    res.status(200).send({ decodedJWT: decodedJWT });
+    try {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log(decodedJWT);
+        let ablaufdatum = moment.unix(decodedJWT.exp).format();
+        console.log(ablaufdatum);
+        if (moment(ablaufdatum).isBefore(moment())) {
+            console.log('is expired')
+            res.status(200).send({ isExpired: 'true' });
+        } else {
+            console.log('is not expired')
+            res.status(200).send({ isExpired: 'false' });
+        }
+    } catch(err) {
+        console.log(err);
+        res.status(500).send("Server error!");
+    }
 });
 
 app.use(router);
