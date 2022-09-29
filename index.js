@@ -24,25 +24,43 @@ const  createUsersTable  = () => {
     const  sqlQuery  =  `
         CREATE TABLE IF NOT EXISTS users (
         id integer PRIMARY KEY,
-        roles text,
-        name text,
-        vorname text,
-        nachname text,
-        adresse text,
-        strasse text,
-        hausnummer text,
-        ort text,
-        plz integer,
-        sichtbarkeit text,
-        categories text,
-        isCouch text,
         email text UNIQUE,
-        steuernummer text,
         password text,
-        gekaufteCouchings text,
-        eigeneCouchings text,
-        rechnungen text,
-        interests text)`;
+        profile_image blob)`;
+
+    return  database.run(sqlQuery);
+}
+
+const  createPartyTable  = () => {
+    const  sqlQuery  =  `
+        CREATE TABLE IF NOT EXISTS partys (
+        id integer PRIMARY KEY,
+        owner_id integer,
+        party_name text,
+        box_id integer)`;
+
+    return  database.run(sqlQuery);
+}
+
+const  createBoxTable  = () => {
+    const  sqlQuery  =  `
+        CREATE TABLE IF NOT EXISTS boxes (
+        id integer PRIMARY KEY,
+        owner_id integer,
+        box_name text,
+        party_id integer)`;
+
+    return  database.run(sqlQuery);
+}
+
+const  createGuestsTable  = () => {
+    const  sqlQuery  =  `
+        CREATE TABLE IF NOT EXISTS guests (
+        id integer PRIMARY KEY,
+        party_id integer,
+        guest_id integer,
+
+)`;
 
     return  database.run(sqlQuery);
 }
@@ -61,6 +79,56 @@ const  createUser  = (user, cb) => {
 }
 
 createUsersTable();
+createPartyTable();
+createBoxTable();
+createGuestsTable();
+
+createBoxTable()
+
+router.post('/create-party', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let banner = {
+            owner_id: decodedJWT.id,
+            banner_base64: req.body.banner_base64,
+            created_at: moment().toString(),
+            updated_at: '',
+            deleted_at: ''
+        }
+
+        createParty(banner, (err) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                res.status(200).send({ "status": 'ok' });
+            }
+
+        });
+
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.get('/', (req, res) => {
     res.status(200).send('This is an authentication server');
