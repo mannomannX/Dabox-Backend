@@ -61,24 +61,24 @@ const  createUser  = (user, cb) => {
 }
 
 createUsersTable();
-createCouchingsTable();
 
 router.get('/', (req, res) => {
     res.status(200).send('This is an authentication server');
 });
 
 router.post('/register', (req, res) => {
-
+    console.log(req.body);
     const  name  =  req.body.name;
     const  email  =  req.body.email;
-    console.log(req.body);
+
     const  password  =  bcrypt.hashSync(req.body.password);
 
     createUser([name, email, password], (err)=>{
         if(err) return  res.status(500).send("Server error!");
         findUserByEmail(email, (err, user)=>{
             if (err) return  res.status(500).send('Server error!');  
-            const  expiresIn  =  24  *  60  *  60;
+            //const  expiresIn  =  24  *  60  *  60;
+            const  expiresIn  =  60;
             const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
                 expiresIn:  expiresIn
             });
@@ -98,12 +98,21 @@ router.post('/login', (req, res) => {
         const  result  =  bcrypt.compareSync(password, user.password);
         if(!result) return  res.status(401).send('Password not valid!');
 
-        const  expiresIn  =  24  *  60  *  60;
+        //const  expiresIn  =  24  *  60  *  60;
+        const  expiresIn  =  60;
         const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
             expiresIn:  expiresIn
         });
         res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn});
     });
+});
+
+router.post('/check-login', (req, res) => {
+    let decodedJWT = jwt.decode(req.body.access_token);
+    //decodedJWT.id
+    let ablaufdatum = moment.unix(decodedJWT.exp).format();
+    console.log(ablaufdatum);
+    res.status(200).send({ decodedJWT: decodedJWT });
 });
 
 app.use(router);
