@@ -157,7 +157,7 @@ createBoxTable();
 createGuestsTable();
 createInviteCodesTable();
 
-router.post('/get-my-current-party', (req, res) => {
+router.post('/get-my-partys', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
         let box = {
@@ -230,7 +230,8 @@ router.post('/join', (req, res) => {
             for (let i=0; i<activeInvitations.length; i++) {
                 if (/*activeInvitations[0].invite_code == code*/true) {
                     createGuest([activeInvitations[0].party_id, decodedJWT.id], (err)=>{
-                        res.status(200).send('This is an authentication server');
+                        if(err) return  res.status(500).send("Server error!");
+                        res.status(200).send({ status: "ok" });
                     })
                 }
             }
