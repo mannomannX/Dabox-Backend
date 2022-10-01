@@ -77,6 +77,19 @@ const  createUser  = (user, cb) => {
     });
 }
 
+const  updateUserName  = (newName, id, cb) => {
+    return  database.run('UPDATE users SET name = ? WHERE id = ?',[newName, id], (err) => {
+        cb(err)
+    });
+}
+
+const  createParty  = (party, cb) => {
+    console.log(party)
+    return  database.run('INSERT INTO partys (owner_id, party_name, box_id) VALUES (?,?,?)',party, (err) => {
+        cb(err)
+    });
+}
+
 createUsersTable();
 createPartyTable();
 createBoxTable();
@@ -124,8 +137,8 @@ router.post('/register', (req, res) => {
         if(err) return  res.status(500).send("Server error!");
         findUserByEmail(email, (err, user)=>{
             if (err) return  res.status(500).send('Server error!');  
-            //const  expiresIn  =  24  *  60  *  60;
-            const  expiresIn  =  60;
+            const  expiresIn  =  24  *  60  *  60;
+            //const  expiresIn  =  60;
             const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
                 expiresIn:  expiresIn
             });
@@ -145,8 +158,8 @@ router.post('/login', (req, res) => {
         const  result  =  bcrypt.compareSync(password, user.password);
         if(!result) return  res.status(401).send('Password not valid!');
 
-        //const  expiresIn  =  24  *  60  *  60;
-        const  expiresIn  =  60;
+        const  expiresIn  =  24  *  60  *  60;
+        //const  expiresIn  =  60;
         const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
             expiresIn:  expiresIn
         });
@@ -170,6 +183,34 @@ router.post('/check-login', (req, res) => {
     } catch(err) {
         console.log(err);
         res.status(500).send("Server error!");
+    }
+});
+
+router.post('/update-user-name', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log(decodedJWT);
+        let newUserName = req.body.newUserName;
+        console.log('newUserName: ' + newUserName);
+        console.log('userId: ' + decodedJWT.id);
+        try {
+
+
+                updateUserName(newUserName, decodedJWT.id, (err) => {
+                    if (err) {
+                        console.log(err)
+                    } else {
+
+                    }
+                });
+            
+            res.status(200).send({ "status": 'ok' });
+        } catch (err) {
+            console.log(err)
+            res.status(500).send("Server error!");
+        }
+    } else {
+        res.status(401).send("Server error!");
     }
 });
 
