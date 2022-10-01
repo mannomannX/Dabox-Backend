@@ -72,7 +72,7 @@ const  findUserByEmail  = (email, cb) => {
 
 const  createUser  = (user, cb) => {
     console.log(user)
-    return  database.run('INSERT INTO users (name, email, password) VALUES (?,?,?)',user, (err) => {
+    return  database.run('INSERT INTO users (name, email, password, profile_image) VALUES (?,?,?,?)',user, (err) => {
         cb(err)
     });
 }
@@ -116,10 +116,11 @@ router.post('/register', (req, res) => {
     console.log(req.body);
     const  name  =  req.body.name;
     const  email  =  req.body.email;
+    const  profileImage  =  req.body.profileImage;
 
     const  password  =  bcrypt.hashSync(req.body.password);
 
-    createUser([name, email, password], (err)=>{
+    createUser([name, email, password, profileImage], (err)=>{
         if(err) return  res.status(500).send("Server error!");
         findUserByEmail(email, (err, user)=>{
             if (err) return  res.status(500).send('Server error!');  
