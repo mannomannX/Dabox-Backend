@@ -83,6 +83,12 @@ const  updateUserName  = (newName, id, cb) => {
     });
 }
 
+const  updateProfileImage  = (profile_image, id, cb) => {
+    return  database.run('UPDATE users SET profile_image = ? WHERE id = ?',[profile_image, id], (err) => {
+        cb(err)
+    });
+}
+
 const  createParty  = (party, cb) => {
     console.log(party)
     return  database.run('INSERT INTO partys (owner_id, party_name, box_id) VALUES (?,?,?)',party, (err) => {
@@ -197,6 +203,34 @@ router.post('/update-user-name', (req, res) => {
 
 
                 updateUserName(newUserName, decodedJWT.id, (err) => {
+                    if (err) {
+                        console.log(err)
+                    } else {
+
+                    }
+                });
+            
+            res.status(200).send({ "status": 'ok' });
+        } catch (err) {
+            console.log(err)
+            res.status(500).send("Server error!");
+        }
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/update-profile-image', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log(decodedJWT);
+        let newProfileImage = req.body.newProfileImage;
+        console.log('newProfileImage: ' + newProfileImage);
+        console.log('userId: ' + decodedJWT.id);
+        try {
+
+
+            updateProfileImage(newProfileImage, decodedJWT.id, (err) => {
                     if (err) {
                         console.log(err)
                     } else {
