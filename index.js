@@ -112,6 +112,13 @@ const  createParty  = (party, cb) => {
     });
 }
 
+const  createGuest  = (guest, cb) => {
+    console.log(guest)
+    return  database.run('INSERT INTO guests (party_id, guest_id) VALUES (?,?)',guest, (err) => {
+        cb(err)
+    });
+}
+
 const  createBox  = (box, cb) => {
     console.log(box)
     return  database.run('INSERT INTO boxes (owner_id, box_name, party_id) VALUES (?,?,?)',box, (err) => {
@@ -129,12 +136,18 @@ const  createInvitation  = (invitation, cb) => {
 const  getAllActiveInvitations  = (cb) => {
     let activeInvitations = []
     return  database.all(`SELECT * FROM invite_codes`,[], (err, row) => {
-            row.forEach((item) => {
+            /*row.forEach((item) => {
                 if(moment(item.expiryDate).isAfter(moment())) {
                     activeInvitations.push(item);
                 }
-            })
-            cb(err, activeInvitations)
+            })*/
+            cb(err, row)
+    });
+}
+
+const  findPartyByOwnerId  = (id, cb) => {
+    return  database.get(`SELECT owner_id, party_name, box_id FROM partys WHERE id = ?`,[id], (err, row) => {
+            cb(err, row)
     });
 }
 
@@ -144,20 +157,44 @@ createBoxTable();
 createGuestsTable();
 createInviteCodesTable();
 
+router.post('/get-my-current-party', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let box = {
+            owner_id: req.body.owner_id,
+            box_name: req.body.box_name,
+            party_id: req.body.party_id
+        }
+
+        findPartyByOwnerId([box.owner_id, box.box_name, box.party_id], (err) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                res.status(200).send({ "status": 'ok' });
+            }
+
+        });
+
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
 router.post('/create-invite', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        let invite_code = String(Math.floor(Math.random() * 1000));
-        QRCode.toDataURL()
+        let invite_code = String(Math.floor(Math.random() * 10000));
+        QRCode.toDataURL(invite_code)
             .then(url => {
-                console.log(url)
                 let invitation = {
                     owner_id: decodedJWT.id,
                     party_id: req.body.party_id,
                     invite_code: invite_code,
                     qr_code_picture: url,
-                    expiryDate: moment().add(1, 'hour')
+                    expiryDate: moment().add(1, 'hour').toString()
                 }
+                //console.log(invitation)
                 createInvitation([invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.qr_code_picture, invitation.expiryDate], (err) => {
                     if (err) {
                         console.log(err)
@@ -178,54 +215,6 @@ router.post('/create-invite', (req, res) => {
     }
 });
 
-router.post('/create-box', (req, res) => {
-    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
-        let decodedJWT = jwt.decode(req.body.access_token);
-        let box = {
-            owner_id: req.body.owner_id,
-            box_name: req.body.box_name,
-            party_id: req.body.party_id
-        }
-
-        createBox([box.owner_id, box.box_name, box.party_id], (err) => {
-            if (err) {
-                console.log(err)
-                res.status(500).send("Server error!");
-            } else {
-                res.status(200).send({ "status": 'ok' });
-            }
-
-        });
-
-    } else {
-        res.status(401).send("Server error!");
-    }
-});
-
-router.post('/create-party', (req, res) => {
-    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
-        let decodedJWT = jwt.decode(req.body.access_token);
-        let party = {
-            owner_id: req.body.owner_id,
-            party_name: req.body.party_name,
-            box_id: req.body.box_id
-        }
-
-        createParty([party.owner_id, party.party_name, party.box_id], (err) => {
-            if (err) {
-                console.log(err)
-                res.status(500).send("Server error!");
-            } else {
-                res.status(200).send({ "status": 'ok' });
-            }
-
-        });
-
-    } else {
-        res.status(401).send("Server error!");
-    }
-});
-
 router.post('/join', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
@@ -234,10 +223,17 @@ router.post('/join', (req, res) => {
         const png = PNG.sync.read(Buffer.from(dataUri.slice('data:image/png;base64,'.length), 'base64'));
         const code = jsqr(Uint8ClampedArray.from(png.data), png.width, png.height);
         console.log(code);
-        invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.expiryDate
+        //invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.expiryDate
         getAllActiveInvitations((err, activeInvitations)=>{
             if (err) return  res.status(500).send('Server error!');
-            console.log(activeInvitations)
+            console.log(activeInvitations.length)
+            for (let i=0; i<activeInvitations.length; i++) {
+                if (/*activeInvitations[0].invite_code == code*/true) {
+                    createGuest([activeInvitations[0].party_id, decodedJWT.id], (err)=>{
+                        res.status(200).send('This is an authentication server');
+                    })
+                }
+            }
 
         });
 
@@ -363,6 +359,56 @@ router.post('/update-profile-image', (req, res) => {
             console.log(err)
             res.status(500).send("Server error!");
         }
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+/* used by admin only */
+router.post('/create-box', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let box = {
+            owner_id: req.body.owner_id,
+            box_name: req.body.box_name,
+            party_id: req.body.party_id
+        }
+
+        createBox([box.owner_id, box.box_name, box.party_id], (err) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                res.status(200).send({ "status": 'ok' });
+            }
+
+        });
+
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+/* used by admin only */
+router.post('/create-party', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let party = {
+            owner_id: req.body.owner_id,
+            party_name: req.body.party_name,
+            box_id: req.body.box_id
+        }
+
+        createParty([party.owner_id, party.party_name, party.box_id], (err) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                res.status(200).send({ "status": 'ok' });
+            }
+
+        });
+
     } else {
         res.status(401).send("Server error!");
     }
