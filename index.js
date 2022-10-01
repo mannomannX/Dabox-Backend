@@ -53,6 +53,7 @@ const  createInviteCodesTable  = () => {
         owner_id integer,
         party_id text,
         invite_code text,
+        qr_code_picture text,
         expiryDate text)`;
 
     return  database.run(sqlQuery);
@@ -120,7 +121,7 @@ const  createBox  = (box, cb) => {
 
 const  createInvitation  = (invitation, cb) => {
     console.log(invitation)
-    return  database.run('INSERT INTO invite_codes (owner_id, party_id, invite_code, expiryDate) VALUES (?,?,?,?)',invitation, (err) => {
+    return  database.run('INSERT INTO invite_codes (owner_id, party_id, invite_code, qr_code_picture, expiryDate) VALUES (?,?,?,?,?)',invitation, (err) => {
         cb(err)
     });
 }
@@ -146,21 +147,23 @@ createInviteCodesTable();
 router.post('/create-invite', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        QRCode.toDataURL(String(Math.floor(Math.random() * 1000)))
+        let invite_code = String(Math.floor(Math.random() * 1000));
+        QRCode.toDataURL()
             .then(url => {
                 console.log(url)
                 let invitation = {
                     owner_id: decodedJWT.id,
                     party_id: req.body.party_id,
-                    invite_code: url,
+                    invite_code: invite_code,
+                    qr_code_picture: url,
                     expiryDate: moment().add(1, 'hour')
                 }
-                createInvitation([invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.expiryDate], (err) => {
+                createInvitation([invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.qr_code_picture, invitation.expiryDate], (err) => {
                     if (err) {
                         console.log(err)
                         res.status(500).send("Server error!");
                     } else {
-                        res.status(200).send({ "status": 'ok' });
+                        res.status(200).send({ "status": 'ok', "invitation": invitation });
                     }
                 });
             })
