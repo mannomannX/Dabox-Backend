@@ -27,7 +27,7 @@ const  createUsersTable  = () => {
         name text,
         email text UNIQUE,
         password text,
-        profile_image blob)`;
+        profile_image text)`;
 
     return  database.run(sqlQuery);
 }
@@ -65,7 +65,7 @@ const  createGuestsTable  = () => {
 }
 
 const  findUserByEmail  = (email, cb) => {
-    return  database.get(`SELECT id, name, email, password FROM users WHERE email = ?`,[email], (err, row) => {
+    return  database.get(`SELECT id, name, email, password, profile_image FROM users WHERE email = ?`,[email], (err, row) => {
             cb(err, row)
     });
 }
@@ -116,11 +116,11 @@ router.post('/register', (req, res) => {
     console.log(req.body);
     const  name  =  req.body.name;
     const  email  =  req.body.email;
-    const  profileImage  =  req.body.profileImage;
+    const  profile_image  =  req.body.profileImage;
 
     const  password  =  bcrypt.hashSync(req.body.password);
 
-    createUser([name, email, password, profileImage], (err)=>{
+    createUser([name, email, password, profile_image], (err)=>{
         if(err) return  res.status(500).send("Server error!");
         findUserByEmail(email, (err, user)=>{
             if (err) return  res.status(500).send('Server error!');  
