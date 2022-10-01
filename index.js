@@ -6,6 +6,9 @@ const  sqlite3  =  require('sqlite3').verbose();
 const  jwt  =  require('jsonwebtoken');
 const  bcrypt  =  require('bcryptjs');
 const moment = require('moment')
+const {PNG} = require('pngjs');
+const jsqr = require('jsqr');
+var QRCode = require('qrcode');
 
 const SECRET_KEY = "secretkey23456";
 
@@ -39,6 +42,18 @@ const  createPartyTable  = () => {
         owner_id integer,
         party_name text,
         box_id integer)`;
+
+    return  database.run(sqlQuery);
+}
+
+const  createInviteCodesTable  = () => {
+    const  sqlQuery  =  `
+        CREATE TABLE IF NOT EXISTS invite_codes (
+        id integer PRIMARY KEY,
+        owner_id integer,
+        party_id text,
+        invite_code text,
+        expiryDate text)`;
 
     return  database.run(sqlQuery);
 }
@@ -96,23 +111,80 @@ const  createParty  = (party, cb) => {
     });
 }
 
+const  createBox  = (box, cb) => {
+    console.log(box)
+    return  database.run('INSERT INTO boxes (owner_id, box_name, party_id) VALUES (?,?,?)',box, (err) => {
+        cb(err)
+    });
+}
+
+const  createInvitation  = (invitation, cb) => {
+    console.log(invitation)
+    return  database.run('INSERT INTO invite_codes (owner_id, party_id, invite_code, expiryDate) VALUES (?,?,?,?)',invitation, (err) => {
+        cb(err)
+    });
+}
+
+const  getAllActiveInvitations  = (cb) => {
+    let activeInvitations = []
+    return  database.all(`SELECT * FROM invite_codes`,[], (err, row) => {
+            row.forEach((item) => {
+                if(moment(item.expiryDate).isAfter(moment())) {
+                    activeInvitations.push(item);
+                }
+            })
+            cb(err, activeInvitations)
+    });
+}
+
 createUsersTable();
 createPartyTable();
 createBoxTable();
 createGuestsTable();
+createInviteCodesTable();
 
-router.post('/create-party', (req, res) => {
+router.post('/create-invite', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        let banner = {
-            owner_id: decodedJWT.id,
-            banner_base64: req.body.banner_base64,
-            created_at: moment().toString(),
-            updated_at: '',
-            deleted_at: ''
+        QRCode.toDataURL(String(Math.floor(Math.random() * 1000)))
+            .then(url => {
+                console.log(url)
+                let invitation = {
+                    owner_id: decodedJWT.id,
+                    party_id: req.body.party_id,
+                    invite_code: url,
+                    expiryDate: moment().add(1, 'hour')
+                }
+                createInvitation([invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.expiryDate], (err) => {
+                    if (err) {
+                        console.log(err)
+                        res.status(500).send("Server error!");
+                    } else {
+                        res.status(200).send({ "status": 'ok' });
+                    }
+                });
+            })
+            .catch(err => {
+                console.error(err)
+            })
+         
+
+
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/create-box', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let box = {
+            owner_id: req.body.owner_id,
+            box_name: req.body.box_name,
+            party_id: req.body.party_id
         }
 
-        createParty(banner, (err) => {
+        createBox([box.owner_id, box.box_name, box.party_id], (err) => {
             if (err) {
                 console.log(err)
                 res.status(500).send("Server error!");
@@ -121,6 +193,51 @@ router.post('/create-party', (req, res) => {
             }
 
         });
+
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/create-party', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let party = {
+            owner_id: req.body.owner_id,
+            party_name: req.body.party_name,
+            box_id: req.body.box_id
+        }
+
+        createParty([party.owner_id, party.party_name, party.box_id], (err) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                res.status(200).send({ "status": 'ok' });
+            }
+
+        });
+
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/join', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let picture = req.body.picture;
+        const dataUri = picture;
+        const png = PNG.sync.read(Buffer.from(dataUri.slice('data:image/png;base64,'.length), 'base64'));
+        const code = jsqr(Uint8ClampedArray.from(png.data), png.width, png.height);
+        console.log(code);
+        invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.expiryDate
+        getAllActiveInvitations((err, activeInvitations)=>{
+            if (err) return  res.status(500).send('Server error!');
+            console.log(activeInvitations)
+
+        });
+
 
     } else {
         res.status(401).send("Server error!");
