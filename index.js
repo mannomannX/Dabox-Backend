@@ -157,6 +157,14 @@ const  findGuestsOfSamePartysAsMe  = (myPartys, cb) => {
     });
 }
 
+const  getInformationAboutParty  = (party_id, cb) => {
+    console.log('Suche Party: ' + party_id)
+    return  database.run(`SELECT id, owner_id, party_name, box_id FROM partys WHERE id = ?`,[party_id], (err, row) => {
+        console.log('Party ' + party_id + ' -> ' + row)
+            cb(err, row)
+    });
+}
+
 createUsersTable();
 createPartyTable();
 createBoxTable();
@@ -173,16 +181,19 @@ router.post('/get-my-partys', (req, res) => {
                 console.log(err)
                 res.status(500).send("Server error!");
             } else {
-                console.log('User ' + decodedJWT.id + ' ist auf Party ' + JSON.stringify(myPartys) + '\n') /* [ { party_id: 3, guest_id: 1 }, { party_id: 5, guest_id: 1 }, { party_id: 21, guest_id: 1 } ] */
+                //  console.log('User ' + decodedJWT.id + ' ist auf Party ' + JSON.stringify(myPartys) + '\n')
                 let result = []
+                let allPartyIds = []
                 myPartys.forEach((party) => {
                     result.push({
                         party_id: party.party_id,
-                        guests: []
+                        guest_ids: [],
+                        partyInfo: null
                     })
-                })
-                for (let i=0; i<myPartys.length; i++) {
-                    findGuestsOfSamePartysAsMe([myPartys[i].party_id], (err, guests) =>  {
+                    allPartyIds.push(party.party_id)
+                });
+                res.status(200).send({ "status": 'ok', "myPartys": myPartys, "allPartyIds": allPartyIds });
+                    /*findGuestsOfSamePartysAsMe(allIDs, (err, guests) =>  {
                         if (err) {
                             console.log(err)
                             res.status(500).send("Server error!");
@@ -191,16 +202,23 @@ router.post('/get-my-partys', (req, res) => {
                             for (let i=0; i<guests.length; i++) {
                                 for (let x=0; x<result.length; x++) {
                                     if (guests[i].party_id == result[x].party_id) {
-                                        result[x].guests.push(guests[i].guest_id)
+                                        result[x].guest_ids.push(guests[i].guest_id)
                                     }
                                 }
                             }
-                            console.log(JSON.stringify(result))
-                            
                         }
                     });
-                }
-                res.status(200).send({ "status": 'ok' });
+                let partyInformation = []
+                for (let i=0; i<result.length; i++) {
+                    console.log('result[i].party_id: ' + result[i].party_id)
+                    getInformationAboutParty([result[i].party_id], (err, partyInfo) =>  {
+                        if (err) return  res.status(500).send('Server error!');
+                        partyInformation.push(partyInfo)
+                        console.log('partyInfo: ' + partyInfo)
+                    });
+                }*/
+                //console.log(JSON.stringify(result))
+                //res.status(200).send({ "status": 'ok' });
             }
 
         });
