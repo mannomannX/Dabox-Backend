@@ -174,6 +174,13 @@ router.post('/get-my-partys', (req, res) => {
                 res.status(500).send("Server error!");
             } else {
                 console.log('User ' + decodedJWT.id + ' ist auf Party ' + JSON.stringify(myPartys) + '\n') /* [ { party_id: 3, guest_id: 1 }, { party_id: 5, guest_id: 1 }, { party_id: 21, guest_id: 1 } ] */
+                let result = []
+                myPartys.forEach((party) => {
+                    result.push({
+                        party_id: party.party_id,
+                        guests: []
+                    })
+                })
                 for (let i=0; i<myPartys.length; i++) {
                     findGuestsOfSamePartysAsMe([myPartys[i].party_id], (err, guests) =>  {
                         if (err) {
@@ -182,8 +189,14 @@ router.post('/get-my-partys', (req, res) => {
                         } else {
                             console.log('weitere Gäste von Party ' + myPartys[i].party_id + ' sind ' + JSON.stringify(guests, null, 1) + '\n')
                             for (let i=0; i<guests.length; i++) {
-
+                                for (let x=0; x<result.length; x++) {
+                                    if (guests[i].party_id == result[x].party_id) {
+                                        result[x].guests.push(guests[i].guest_id)
+                                    }
+                                }
                             }
+                            console.log(JSON.stringify(result))
+                            
                         }
                     });
                 }
