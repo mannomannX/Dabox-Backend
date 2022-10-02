@@ -145,8 +145,14 @@ const  getAllActiveInvitations  = (cb) => {
     });
 }
 
-const  findPartyByOwnerId  = (id, cb) => {
-    return  database.get(`SELECT owner_id, party_name, box_id FROM partys WHERE id = ?`,[id], (err, row) => {
+const  findPartysByGuestId  = (id, cb) => {
+    return  database.all(`SELECT party_id, guest_id FROM guests WHERE guest_id = ?`,[id], (err, row) => {
+            cb(err, row)
+    });
+}
+
+const  findGuestsOfSamePartysAsMe  = (myPartys, cb) => {
+    return  database.all(`SELECT party_id, guest_id FROM guests WHERE party_id = ? AND WHERE NOT guest_id = ?`,[myPartys], (err, row) => {
             cb(err, row)
     });
 }
@@ -160,17 +166,24 @@ createInviteCodesTable();
 router.post('/get-my-partys', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        let box = {
-            owner_id: req.body.owner_id,
-            box_name: req.body.box_name,
-            party_id: req.body.party_id
-        }
 
-        findPartyByOwnerId([box.owner_id, box.box_name, box.party_id], (err) => {
+
+        findPartysByGuestId([decodedJWT.id], (err, myPartys) => {
             if (err) {
                 console.log(err)
                 res.status(500).send("Server error!");
             } else {
+                console.log(myPartys)
+                for (let i=0; i<myPartys.length; i++) {
+                    findGuestsOfSamePartysAsMe([myPartys[i].party_id, decodedJWT.id], (err, guests) =>  {
+                        if (err) {
+                            console.log(err)
+                            res.status(500).send("Server error!");
+                        } else {
+                            console.log(guests)
+                        }
+                    });
+                }
                 res.status(200).send({ "status": 'ok' });
             }
 
