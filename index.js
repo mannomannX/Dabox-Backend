@@ -152,7 +152,6 @@ const  findPartysByGuestId  = (id, cb) => {
 }
 
 const  findGuestsOfSamePartysAsMe  = (myPartys, cb) => {
-    console.log(myPartys)
     return  database.all(`SELECT party_id, guest_id FROM guests WHERE party_id = ?`,[myPartys], (err, row) => {
             cb(err, row)
     });
@@ -174,14 +173,14 @@ router.post('/get-my-partys', (req, res) => {
                 console.log(err)
                 res.status(500).send("Server error!");
             } else {
-                console.log(myPartys) /* [ { party_id: 3, guest_id: 1 }, { party_id: 5, guest_id: 1 }, { party_id: 21, guest_id: 1 } ] */
+                console.log('User ' + decodedJWT.id + ' ist auf Party ' + JSON.stringify(myPartys) + '\n') /* [ { party_id: 3, guest_id: 1 }, { party_id: 5, guest_id: 1 }, { party_id: 21, guest_id: 1 } ] */
                 for (let i=0; i<myPartys.length; i++) {
                     findGuestsOfSamePartysAsMe([myPartys[i].party_id], (err, guests) =>  {
                         if (err) {
                             console.log(err)
                             res.status(500).send("Server error!");
                         } else {
-                            console.log(guests)
+                            console.log('weitere Gäste von Party ' + myPartys[i].party_id + ' sind ' + JSON.stringify(guests, null, 1) + '\n')
                             for (let i=0; i<guests.length; i++) {
 
                             }
@@ -426,6 +425,25 @@ router.post('/create-party', (req, res) => {
             }
 
         });
+
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+/* used by admin only, aber eigentlich gar nicht */
+router.post('/create-guest', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let guest = {
+            party_id: req.body.party_id,
+            guest_id: req.body.guest_id,
+        }
+
+        createGuest([guest.party_id, guest.guest_id], (err)=>{
+            if(err) return  res.status(500).send("Server error!");
+            res.status(200).send({ status: "ok" });
+        })
 
     } else {
         res.status(401).send("Server error!");
