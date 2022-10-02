@@ -152,7 +152,8 @@ const  findPartysByGuestId  = (id, cb) => {
 }
 
 const  findGuestsOfSamePartysAsMe  = (myPartys, cb) => {
-    return  database.all(`SELECT party_id, guest_id FROM guests WHERE party_id = ? AND WHERE NOT guest_id = ?`,[myPartys], (err, row) => {
+    console.log(myPartys)
+    return  database.all(`SELECT party_id, guest_id FROM guests WHERE party_id = ?`,[myPartys], (err, row) => {
             cb(err, row)
     });
 }
@@ -173,14 +174,17 @@ router.post('/get-my-partys', (req, res) => {
                 console.log(err)
                 res.status(500).send("Server error!");
             } else {
-                console.log(myPartys)
+                console.log(myPartys) /* [ { party_id: 3, guest_id: 1 }, { party_id: 5, guest_id: 1 }, { party_id: 21, guest_id: 1 } ] */
                 for (let i=0; i<myPartys.length; i++) {
-                    findGuestsOfSamePartysAsMe([myPartys[i].party_id, decodedJWT.id], (err, guests) =>  {
+                    findGuestsOfSamePartysAsMe([myPartys[i].party_id], (err, guests) =>  {
                         if (err) {
                             console.log(err)
                             res.status(500).send("Server error!");
                         } else {
                             console.log(guests)
+                            for (let i=0; i<guests.length; i++) {
+
+                            }
                         }
                     });
                 }
