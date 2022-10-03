@@ -41,7 +41,8 @@ const  createPartyTable  = () => {
         id integer PRIMARY KEY,
         owner_id integer,
         party_name text,
-        box_id integer)`;
+        box_id integer,
+        owner_name text)`;
 
     return  database.run(sqlQuery);
 }
@@ -107,7 +108,7 @@ const  updateProfileImage  = (profile_image, id, cb) => {
 
 const  createParty  = (party, cb) => {
     console.log(party)
-    return  database.run('INSERT INTO partys (owner_id, party_name, box_id) VALUES (?,?,?)',party, (err) => {
+    return  database.run('INSERT INTO partys (owner_id, party_name, box_id, owner_name) VALUES (?,?,?,?)',party, (err) => {
         cb(err)
     });
 }
@@ -145,7 +146,7 @@ const  getAllActiveInvitations  = (cb) => {
     });
 }
 
-const  findPartysByGuestId  = (id, cb) => {
+const  getPartyIdsByGuestId  = (id, cb) => {
     return  database.all(`SELECT party_id, guest_id FROM guests WHERE guest_id = ?`,[id], (err, row) => {
             cb(err, row)
     });
@@ -158,9 +159,7 @@ const  findGuestsOfSamePartysAsMe  = (myPartys, cb) => {
 }
 
 const  getInformationAboutParty  = (party_id, cb) => {
-    console.log('Suche Party: ' + party_id)
-    return  database.run(`SELECT id, owner_id, party_name, box_id FROM partys WHERE id = ?`,[party_id], (err, row) => {
-        console.log('Party ' + party_id + ' -> ' + row)
+    return  database.all(`SELECT id, owner_id, party_name, box_id, owner_name FROM partys WHERE id = ?`,[party_id], (err, row) => {
             cb(err, row)
     });
 }
@@ -171,25 +170,63 @@ createBoxTable();
 createGuestsTable();
 createInviteCodesTable();
 
-router.post('/get-my-partys', (req, res) => {
+router.post('/get-my-partys-information', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
+        getInformationAboutParty([req.body.party_id], (err, myParty) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                console.log(myParty)
+                res.status(200).send({ "status": 'ok', "myParty": myParty });
+                    /*findGuestsOfSamePartysAsMe(allIDs, (err, guests) =>  {
+                        if (err) {
+                            console.log(err)
+                            res.status(500).send("Server error!");
+                        } else {
+                            console.log('weitere Gäste von Party ' + myPartys[i].party_id + ' sind ' + JSON.stringify(guests, null, 1) + '\n')
+                            for (let i=0; i<guests.length; i++) {
+                                for (let x=0; x<result.length; x++) {
+                                    if (guests[i].party_id == result[x].party_id) {
+                                        result[x].guest_ids.push(guests[i].guest_id)
+                                    }
+                                }
+                            }
+                        }
+                    });
+                let partyInformation = []
+                for (let i=0; i<result.length; i++) {
+                    console.log('result[i].party_id: ' + result[i].party_id)
+                    getInformationAboutParty([result[i].party_id], (err, partyInfo) =>  {
+                        if (err) return  res.status(500).send('Server error!');
+                        partyInformation.push(partyInfo)
+                        console.log('partyInfo: ' + partyInfo)
+                    });
+                }*/
+                //console.log(JSON.stringify(result))
+                //res.status(200).send({ "status": 'ok' });
+            }
 
+        });
 
-        findPartysByGuestId([decodedJWT.id], (err, myPartys) => {
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/get-my-party-ids', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        getPartyIdsByGuestId([decodedJWT.id], (err, myPartys) => {
             if (err) {
                 console.log(err)
                 res.status(500).send("Server error!");
             } else {
                 //  console.log('User ' + decodedJWT.id + ' ist auf Party ' + JSON.stringify(myPartys) + '\n')
-                let result = []
+
                 let allPartyIds = []
                 myPartys.forEach((party) => {
-                    result.push({
-                        party_id: party.party_id,
-                        guest_ids: [],
-                        partyInfo: null
-                    })
                     allPartyIds.push(party.party_id)
                 });
                 res.status(200).send({ "status": 'ok', "myPartys": myPartys, "allPartyIds": allPartyIds });
@@ -444,10 +481,11 @@ router.post('/create-party', (req, res) => {
         let party = {
             owner_id: req.body.owner_id,
             party_name: req.body.party_name,
-            box_id: req.body.box_id
+            box_id: req.body.box_id,
+            owner_name: req.body.owner_name
         }
 
-        createParty([party.owner_id, party.party_name, party.box_id], (err) => {
+        createParty([party.owner_id, party.party_name, party.box_id, party.owner_name], (err) => {
             if (err) {
                 console.log(err)
                 res.status(500).send("Server error!");
