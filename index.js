@@ -76,7 +76,8 @@ const  createGuestsTable  = () => {
         CREATE TABLE IF NOT EXISTS guests (
         id integer PRIMARY KEY,
         party_id integer,
-        guest_id integer)`;
+        guest_id integer,
+        muted text)`;
 
     return  database.run(sqlQuery);
 }
@@ -115,7 +116,7 @@ const  createParty  = (party, cb) => {
 
 const  createGuest  = (guest, cb) => {
     console.log(guest)
-    return  database.run('INSERT INTO guests (party_id, guest_id) VALUES (?,?)',guest, (err) => {
+    return  database.run('INSERT INTO guests (party_id, guest_id, muted, kicked) VALUES (?,?,?,?)',guest, (err) => {
         cb(err)
     });
 }
@@ -178,11 +179,110 @@ const  getUserInfo  = (user_id, cb) => {
     });
 }
 
+const  kickGuest  = (info, cb) => {
+    return  database.run('DELETE from guests WHERE party_id = ? AND guest_id = ?',[info], (err, row) => {
+        cb(err, row)
+    });
+}
+
+const  muteGuest  = (info, cb) => {
+    return  database.run('UPDATE guests SET muted = ? WHERE party_id = ? AND guest_id = ?',[info], (err, row) => {
+        cb(err, row)
+    });
+}
+
+const  deMuteGuest  = (info, cb) => {
+    return  database.run('UPDATE guests SET muted = ? WHERE party_id = ? AND guest_id = ?',[info], (err, row) => {
+        cb(err, row)
+    });
+}
+
+const  checkIfPartyOwner  = (info, cb) => {
+    return  database.all(`SELECT owner_id, party_id FROM partys WHERE party_id = ? AND owner_id = ?`,[info], (err, row) => {
+            cb(err, row)
+    });
+}
+
 createUsersTable();
 createPartyTable();
 createBoxTable();
 createGuestsTable();
 createInviteCodesTable();
+
+router.post('/check-if-party-owner', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log('req.body.party_id: ' + req.body.party_id)
+            checkIfPartyOwner([req.body.party_id, decodedJWT.id], (err, status) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).send({ "status": 'false' });
+                } else {
+                    console.log(status)
+                    res.status(200).send({ "status": 'true' });
+                } 
+            });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/kick-guest', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log('req.body.guest_id: ' + req.body.guest_id)
+        console.log('req.body.party_id: ' + req.body.party_id)
+            kickGuest([req.body.party_id, req.body.guest_id], (err, status) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).send("Server error!");
+                } else {
+                    console.log(status)
+                    res.status(200).send({ "status": 'ok' });
+                } 
+            });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/mute-guest', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log('req.body.guest_id: ' + req.body.guest_id)
+        console.log('req.body.party_id: ' + req.body.party_id)
+            muteGuest(['true', req.body.party_id, req.body.guest_id], (err, status) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).send("Server error!");
+                } else {
+                    console.log(status)
+                    res.status(200).send({ "status": 'ok' });
+                } 
+            });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/de-mute-guest', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log('req.body.guest_id: ' + req.body.guest_id)
+        console.log('req.body.party_id: ' + req.body.party_id)
+            deMuteGuest(['false', req.body.party_id, req.body.guest_id], (err, status) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).send("Server error!");
+                } else {
+                    console.log(status)
+                    res.status(200).send({ "status": 'ok' });
+                } 
+            });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
 
 router.post('/get-guest-info', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
@@ -362,7 +462,7 @@ router.post('/join', (req, res) => {
             console.log(activeInvitations.length)
             for (let i=0; i<activeInvitations.length; i++) {
                 if (/*activeInvitations[0].invite_code == code*/true) {
-                    createGuest([activeInvitations[0].party_id, decodedJWT.id], (err)=>{
+                    createGuest([activeInvitations[0].party_id, decodedJWT.id, 'false', 'false'], (err)=>{
                         if(err) return  res.status(500).send("Server error!");
                         res.status(200).send({ status: "ok" });
                     })
