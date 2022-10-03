@@ -131,13 +131,7 @@ const  createInvitation  = (invitation, cb) => {
 }
 
 const  getAllActiveInvitations  = (cb) => {
-    let activeInvitations = []
     return  database.all(`SELECT * FROM invite_codes`,[], (err, row) => {
-            /*row.forEach((item) => {
-                if(moment(item.expiryDate).isAfter(moment())) {
-                    activeInvitations.push(item);
-                }
-            })*/
             cb(err, row)
     });
 }
@@ -427,6 +421,7 @@ router.post('/create-invite', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
         let invite_code = String(Math.floor(Math.random() * 10000));
+        console.log(decodedJWT)
         QRCode.toDataURL(invite_code)
             .then(url => {
                 let invitation = {
@@ -442,6 +437,7 @@ router.post('/create-invite', (req, res) => {
                         console.log(err)
                         res.status(500).send("Server error!");
                     } else {
+                        console.log(invitation)
                         res.status(200).send({ "status": 'ok', "invitation": invitation });
                     }
                 });
