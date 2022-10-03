@@ -164,11 +164,60 @@ const  getInformationAboutParty  = (party_id, cb) => {
     });
 }
 
+const  getGuestsOfParty  = (party_id, cb) => {
+    return  database.all(`SELECT party_id, guest_id FROM guests WHERE party_id = ?`,[party_id[0].party_id], (err, row) => {
+        console.log(row)
+            cb(err, row)
+    });
+}
+
+const  getUserInfo  = (user_id, cb) => {
+    return  database.all(`SELECT id, name, profile_image FROM users WHERE id = ?`,[user_id], (err, row) => {
+        console.log(row)
+            cb(err, row)
+    });
+}
+
 createUsersTable();
 createPartyTable();
 createBoxTable();
 createGuestsTable();
 createInviteCodesTable();
+
+router.post('/get-guest-info', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        console.log('req.body.guest_id: ' + req.body.guest_id)
+            getUserInfo(req.body.guest_id, (err, guest) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).send("Server error!");
+                } else {
+                    console.log(guest)
+                    res.status(200).send({ "status": 'ok', "guest": guest });
+                } 
+            });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/get-guests', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        getGuestsOfParty([req.body.party_id], (err, guests) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                console.log(guests)
+                res.status(200).send({ "status": 'ok', "guests": guests });
+            }
+        });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
 
 router.post('/get-my-partys-information', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
