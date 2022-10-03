@@ -89,7 +89,6 @@ const  findUserByEmail  = (email, cb) => {
 }
 
 const  createUser  = (user, cb) => {
-    console.log(user)
     return  database.run('INSERT INTO users (name, email, password, profile_image) VALUES (?,?,?,?)',user, (err) => {
         cb(err)
     });
@@ -108,28 +107,24 @@ const  updateProfileImage  = (profile_image, id, cb) => {
 }
 
 const  createParty  = (party, cb) => {
-    console.log(party)
     return  database.run('INSERT INTO partys (owner_id, party_name, box_id, owner_name) VALUES (?,?,?,?)',party, (err) => {
         cb(err)
     });
 }
 
 const  createGuest  = (guest, cb) => {
-    console.log(guest)
-    return  database.run('INSERT INTO guests (party_id, guest_id, muted, kicked) VALUES (?,?,?,?)',guest, (err) => {
+    return  database.run('INSERT INTO guests (party_id, guest_id, muted) VALUES (?,?,?)',guest, (err) => {
         cb(err)
     });
 }
 
 const  createBox  = (box, cb) => {
-    console.log(box)
     return  database.run('INSERT INTO boxes (owner_id, box_name, party_id) VALUES (?,?,?)',box, (err) => {
         cb(err)
     });
 }
 
 const  createInvitation  = (invitation, cb) => {
-    console.log(invitation)
     return  database.run('INSERT INTO invite_codes (owner_id, party_id, invite_code, qr_code_picture, expiryDate) VALUES (?,?,?,?,?)',invitation, (err) => {
         cb(err)
     });
@@ -167,14 +162,14 @@ const  getInformationAboutParty  = (party_id, cb) => {
 
 const  getGuestsOfParty  = (party_id, cb) => {
     return  database.all(`SELECT party_id, guest_id FROM guests WHERE party_id = ?`,[party_id[0].party_id], (err, row) => {
-        console.log(row)
+        //console.log(row)
             cb(err, row)
     });
 }
 
 const  getUserInfo  = (user_id, cb) => {
     return  database.all(`SELECT id, name, profile_image FROM users WHERE id = ?`,[user_id], (err, row) => {
-        console.log(row)
+        //console.log(row)
             cb(err, row)
     });
 }
@@ -198,7 +193,7 @@ const  deMuteGuest  = (info, cb) => {
 }
 
 const  checkIfPartyOwner  = (info, cb) => {
-    return  database.all(`SELECT owner_id, party_id FROM partys WHERE party_id = ? AND owner_id = ?`,[info], (err, row) => {
+    return  database.all(`SELECT * FROM partys`,[], (err, row) => {
             cb(err, row)
     });
 }
@@ -212,14 +207,28 @@ createInviteCodesTable();
 router.post('/check-if-party-owner', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        console.log('req.body.party_id: ' + req.body.party_id)
-            checkIfPartyOwner([req.body.party_id, decodedJWT.id], (err, status) => {
+        console.log('req.body.party_id.party_id: ' + JSON.stringify(req.body.party_id.party_id))
+        console.log('decodedJWT.id: ' + decodedJWT.id)
+            checkIfPartyOwner([], (err, row) => {
                 if (err) {
                     console.log(err)
-                    res.status(500).send({ "status": 'false' });
+                    res.status(500).send("Server error!");
                 } else {
-                    console.log(status)
-                    res.status(200).send({ "status": 'true' });
+                    console.log(row)
+                    let isAdmin = false
+                    for (let i=0; i<row.length; i++) {
+                        if (row[i].owner_id == decodedJWT.id && row[i].id == req.body.party_id.party_id) {
+                            isAdmin = true
+                            break;
+                        }
+                    }
+                    if (isAdmin) {
+                        console.log('is admin')
+                        res.status(200).send({ "status": 'true' });
+                    } else {
+                        console.log('is not admin')
+                        res.status(200).send({ "status": 'false' });
+                    }
                 } 
             });
     } else {
@@ -287,13 +296,13 @@ router.post('/de-mute-guest', (req, res) => {
 router.post('/get-guest-info', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        console.log('req.body.guest_id: ' + req.body.guest_id)
+        //console.log('req.body.guest_id: ' + req.body.guest_id)
             getUserInfo(req.body.guest_id, (err, guest) => {
                 if (err) {
                     console.log(err)
                     res.status(500).send("Server error!");
                 } else {
-                    console.log(guest)
+                    //console.log(guest)
                     res.status(200).send({ "status": 'ok', "guest": guest });
                 } 
             });
@@ -310,7 +319,7 @@ router.post('/get-guests', (req, res) => {
                 console.log(err)
                 res.status(500).send("Server error!");
             } else {
-                console.log(guests)
+                //console.log(guests)
                 res.status(200).send({ "status": 'ok', "guests": guests });
             }
         });
@@ -462,7 +471,7 @@ router.post('/join', (req, res) => {
             console.log(activeInvitations.length)
             for (let i=0; i<activeInvitations.length; i++) {
                 if (/*activeInvitations[0].invite_code == code*/true) {
-                    createGuest([activeInvitations[0].party_id, decodedJWT.id, 'false', 'false'], (err)=>{
+                    createGuest([activeInvitations[0].party_id, decodedJWT.id, 'false'], (err)=>{
                         if(err) return  res.status(500).send("Server error!");
                         res.status(200).send({ status: "ok" });
                     })
@@ -658,7 +667,7 @@ router.post('/create-guest', (req, res) => {
             guest_id: req.body.guest_id,
         }
 
-        createGuest([guest.party_id, guest.guest_id], (err)=>{
+        createGuest([guest.party_id, guest.guest_id, 'false'], (err)=>{
             if(err) return  res.status(500).send("Server error!");
             res.status(200).send({ status: "ok" });
         })
