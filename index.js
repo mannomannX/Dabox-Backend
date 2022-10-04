@@ -553,7 +553,7 @@ router.post('/join-code', (req, res) => {
                             res.status(200).send({ status: "InviteSuccess", party_id: party_id });
                         });
                     } else {
-                        res.status(200).send({ status: "AlreadyInParty" });
+                        res.status(200).send({ status: "AlreadyInParty", party_id: party_id });
                     }
                 })
             } else {
