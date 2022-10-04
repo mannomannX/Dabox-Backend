@@ -113,6 +113,7 @@ const  createParty  = (party, cb) => {
 }
 
 const  createGuest  = (guest, cb) => {
+    console.log('guest: ' + JSON.stringify(guest))
     return  database.run('INSERT INTO guests (party_id, guest_id, muted) VALUES (?,?,?)',guest, (err) => {
         cb(err)
     });
@@ -421,8 +422,12 @@ router.post('/create-invite', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
         let invite_code = String(Math.floor(Math.random() * 10000));
-        console.log(decodedJWT)
-        QRCode.toDataURL(invite_code)
+        let invite_obj = {
+            invite_code: invite_code,
+            party_id: req.body.party_id
+        }
+        console.log(invite_obj);
+        QRCode.toDataURL(JSON.stringify(invite_obj))
             .then(url => {
                 let invitation = {
                     owner_id: decodedJWT.id,
@@ -431,7 +436,7 @@ router.post('/create-invite', (req, res) => {
                     qr_code_picture: url,
                     expiryDate: moment().add(1, 'hour').toString()
                 }
-                //console.log(invitation)
+                console.log(invitation)
                 createInvitation([invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.qr_code_picture, invitation.expiryDate], (err) => {
                     if (err) {
                         console.log(err)
@@ -453,30 +458,59 @@ router.post('/create-invite', (req, res) => {
     }
 });
 
-router.post('/join', (req, res) => {
+router.post('/join-qr', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
         let picture = req.body.picture;
         const dataUri = picture;
         const png = PNG.sync.read(Buffer.from(dataUri.slice('data:image/png;base64,'.length), 'base64'));
         const code = jsqr(Uint8ClampedArray.from(png.data), png.width, png.height);
-        console.log(code);
-        //invitation.owner_id, invitation.party_id, invitation.invite_code, invitation.expiryDate
-        getAllActiveInvitations((err, activeInvitations)=>{
-            if (err) return  res.status(500).send('Server error!');
-            console.log(activeInvitations.length)
-            for (let i=0; i<activeInvitations.length; i++) {
-                if (/*activeInvitations[0].invite_code == code*/true) {
-                    createGuest([activeInvitations[0].party_id, decodedJWT.id, 'false'], (err)=>{
-                        if(err) return  res.status(500).send("Server error!");
-                        res.status(200).send({ status: "ok" });
+        let parsedInviteObj = JSON.parse(code.data)
+        getAllActiveInvitations((err, activeInvitations) => {
+            if (err) return res.status(500).send('Server error!');
+            let inviteSuccess = false
+            for (let i = 0; i < activeInvitations.length; i++) {
+                if (activeInvitations[i].invite_code == parsedInviteObj.invite_code) {
+                    createGuest([parsedInviteObj.party_id, decodedJWT.id, 'false'], (err) => {
+                        if (err) return res.status(500).send("Server error!");
+                        inviteSuccess = true
                     })
+                    break;
                 }
             }
-
+            if (inviteSuccess) {
+                res.status(200).send({ status: "ok" });
+            } else {
+                res.status(200).send({ status: "false" });
+            }
         });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
 
-
+router.post('/join-code', (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        let code = req.body.code;
+        getAllActiveInvitations((err, activeInvitations) => {
+            if (err) return res.status(500).send('Server error!');
+            let inviteSuccess = false
+            for (let i = 0; i < activeInvitations.length; i++) {
+                if (activeInvitations[i].invite_code == code) {
+                    createGuest([activeInvitations[i].party_id, decodedJWT.id, 'false'], (err) => {
+                        if (err) return res.status(500).send("Server error!");
+                        inviteSuccess = true
+                    })
+                    break;
+                }
+            }
+            if (inviteSuccess) {
+                res.status(200).send({ status: "ok" });
+            } else {
+                res.status(200).send({ status: "false" });
+            }
+        });
     } else {
         res.status(401).send("Server error!");
     }
