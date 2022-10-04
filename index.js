@@ -209,7 +209,6 @@ router.post('/check-if-party-owner', (req, res) => {
                     console.log(err)
                     res.status(500).send("Server error!");
                 } else {
-                    console.log(row)
                     let isAdmin = false
                     for (let i=0; i<row.length; i++) {
                         if (row[i].owner_id == decodedJWT.id && row[i].id == req.body.party_id.party_id) {
@@ -218,7 +217,7 @@ router.post('/check-if-party-owner', (req, res) => {
                         }
                     }
                     if (isAdmin) {
-                        console.log('is admin')
+                        console.log('is admin') 
                         res.status(200).send({ "status": 'true' });
                     } else {
                         console.log('is not admin')
@@ -331,7 +330,6 @@ router.post('/get-my-partys-information', (req, res) => {
                 console.log(err)
                 res.status(500).send("Server error!");
             } else {
-                console.log(myParty)
                 res.status(200).send({ "status": 'ok', "myParty": myParty });
                     /*findGuestsOfSamePartysAsMe(allIDs, (err, guests) =>  {
                         if (err) {
@@ -443,6 +441,7 @@ router.post('/create-invite', (req, res) => {
                         res.status(500).send("Server error!");
                     } else {
                         console.log(invitation)
+                        invitation.invite_code = invitation.invite_code + '-' + req.body.party_id;
                         res.status(200).send({ "status": 'ok', "invitation": invitation });
                     }
                 });
@@ -465,23 +464,43 @@ router.post('/join-qr', (req, res) => {
         const dataUri = picture;
         const png = PNG.sync.read(Buffer.from(dataUri.slice('data:image/png;base64,'.length), 'base64'));
         const code = jsqr(Uint8ClampedArray.from(png.data), png.width, png.height);
-        let parsedInviteObj = JSON.parse(code.data)
+        let parsedInviteObj = JSON.parse(code.data);
+        let invite_code = parsedInviteObj.invite_code;
+        let party_id = parsedInviteObj.party_id;
+        let invitation;
+        let invitationValid = false;
+        let alreadyInParty;
         getAllActiveInvitations((err, activeInvitations) => {
             if (err) return res.status(500).send('Server error!');
-            let inviteSuccess = false
-            for (let i = 0; i < activeInvitations.length; i++) {
-                if (activeInvitations[i].invite_code == parsedInviteObj.invite_code) {
-                    createGuest([parsedInviteObj.party_id, decodedJWT.id, 'false'], (err) => {
-                        if (err) return res.status(500).send("Server error!");
-                        inviteSuccess = true
-                    })
+            for (let i=0; i<activeInvitations.length; i++) {
+                if (party_id == activeInvitations[i].party_id && invite_code == activeInvitations[i].party_id) {
+                    invitation = activeInvitations[i];
+                    invitationValid = true;
                     break;
                 }
             }
-            if (inviteSuccess) {
-                res.status(200).send({ status: "ok" });
-            } else {
-                res.status(200).send({ status: "false" });
+            if (invitationValid) {
+                // check if guest is already in given party
+                getGuestsOfParty((err, guests) => {
+                    if (err) return res.status(500).send('Server error!');
+                    for (let i=0; i<guests.length; i++) {
+                        if (invitation.party_id == guests[i].party_id && decodedJWT.id == guests[i].guest_id) {
+                            alreadyInParty = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyInParty) {
+                        createGuest([party_id, decodedJWT.id, 'false'], (err) => {
+                            if (err) return res.status(500).send("Server error!");
+                            inviteSuccess = true
+                        });
+                    } else {
+                        res.status(200).send({ status: "AlreadyInParty" });
+                    }
+                    if (inviteSuccess) {
+                        res.status(200).send({ status: "InviteSuccess" });
+                    }
+                })
             }
         });
     } else {
@@ -491,24 +510,50 @@ router.post('/join-qr', (req, res) => {
 
 router.post('/join-code', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        console.log('Join-Request per Number-Code')
         let decodedJWT = jwt.decode(req.body.access_token);
-        let code = req.body.code;
+        let invite = String(req.body.code).split('-');
+        let invite_code = invite[0]
+        console.log('invite_code: ' + invite_code)
+        let party_id = invite[1]
+        console.log('party_id: ' + party_id)
+ 
+        let invitation;
+        let invitationValid = false;
+        let alreadyInParty;
+        let inviteSuccess = false;
         getAllActiveInvitations((err, activeInvitations) => {
             if (err) return res.status(500).send('Server error!');
-            let inviteSuccess = false
-            for (let i = 0; i < activeInvitations.length; i++) {
-                if (activeInvitations[i].invite_code == code) {
-                    createGuest([activeInvitations[i].party_id, decodedJWT.id, 'false'], (err) => {
-                        if (err) return res.status(500).send("Server error!");
-                        inviteSuccess = true
-                    })
+            for (let i=0; i<activeInvitations.length; i++) {
+                if (party_id == activeInvitations[i].party_id && invite_code == activeInvitations[i].invite_code) {
+                    invitation = activeInvitations[i];
+                    invitationValid = true;
+                    console.log('Found invitation')
                     break;
                 }
             }
-            if (inviteSuccess) {
-                res.status(200).send({ status: "ok" });
-            } else {
-                res.status(200).send({ status: "false" });
+            if (invitationValid) {
+                // check if guest is already in given party 
+                getGuestsOfParty([{ party_id: party_id }], (err, guests) => {
+                    if (err) return res.status(500).send('Server error!');
+                    for (let i=0; i<guests.length; i++) {
+                        if (invitation.party_id == guests[i].party_id && decodedJWT.id == guests[i].guest_id) {
+                            alreadyInParty = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyInParty) {
+                        createGuest([party_id, decodedJWT.id, 'false'], (err) => {
+                            if (err) return res.status(500).send("Server error!");
+                            inviteSuccess = true
+                        });
+                    } else {
+                        res.status(200).send({ status: "AlreadyInParty" });
+                    }
+                    if (inviteSuccess) {
+                        res.status(200).send({ status: "InviteSuccess" });
+                    }
+                })
             }
         });
     } else {
