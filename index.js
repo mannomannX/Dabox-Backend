@@ -510,7 +510,7 @@ router.post('/join-qr', (req, res) => {
 
 router.post('/join-code', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
-        console.log('Join-Request per Number-Code')
+        console.log('Join-Request with Number-Code: ' + req.body.code)
         let decodedJWT = jwt.decode(req.body.access_token);
         let invite = String(req.body.code).split('-');
         let invite_code = invite[0]
@@ -525,6 +525,10 @@ router.post('/join-code', (req, res) => {
         getAllActiveInvitations((err, activeInvitations) => {
             if (err) return res.status(500).send('Server error!');
             for (let i=0; i<activeInvitations.length; i++) {
+                /*console.log('party_id='+party_id)
+                console.log('activeInvitations[i].party_id='+activeInvitations[i].party_id)
+                console.log('invite_code='+invite_code)*/
+                console.log('activeInvitations[i].invite_code='+activeInvitations[i].invite_code)
                 if (party_id == activeInvitations[i].party_id && invite_code == activeInvitations[i].invite_code) {
                     invitation = activeInvitations[i];
                     invitationValid = true;
@@ -546,14 +550,14 @@ router.post('/join-code', (req, res) => {
                         createGuest([party_id, decodedJWT.id, 'false'], (err) => {
                             if (err) return res.status(500).send("Server error!");
                             inviteSuccess = true
+                            res.status(200).send({ status: "InviteSuccess", party_id: party_id });
                         });
                     } else {
                         res.status(200).send({ status: "AlreadyInParty" });
                     }
-                    if (inviteSuccess) {
-                        res.status(200).send({ status: "InviteSuccess" });
-                    }
                 })
+            } else {
+                res.status(200).send({ status: "WrongCode" });
             }
         });
     } else {
