@@ -156,7 +156,14 @@ const  getInformationAboutParty  = (party_id, cb) => {
 }
 
 const  getGuestsOfParty  = (party_id, cb) => {
-    return  database.all(`SELECT party_id, guest_id FROM guests WHERE party_id = ?`,[party_id[0].party_id], (err, row) => {
+    return  database.all(`SELECT id, party_id, guest_id FROM guests WHERE party_id = ?`,[party_id[0].party_id], (err, row) => {
+        //console.log(row)
+            cb(err, row)
+    });
+}
+
+const  getGuestsOfParty2  = (party_id, cb) => {
+    return  database.all(`SELECT id, party_id, guest_id FROM guests WHERE party_id = ?`,[party_id], (err, row) => {
         //console.log(row)
             cb(err, row)
     });
@@ -169,8 +176,8 @@ const  getUserInfo  = (user_id, cb) => {
     });
 }
 
-const  kickGuest  = (info, cb) => {
-    return  database.run('DELETE from guests WHERE party_id = ? AND guest_id = ?',[info], (err, row) => {
+const  kickGuest  = (id, cb) => {
+    return  database.run('DELETE from guests WHERE id = ?',[id], (err, row) => {
         cb(err, row)
     });
 }
@@ -231,19 +238,32 @@ router.post('/check-if-party-owner', (req, res) => {
 });
 
 router.post('/kick-guest', (req, res) => {
+    console.log('kick')
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
         console.log('req.body.guest_id: ' + req.body.guest_id)
         console.log('req.body.party_id: ' + req.body.party_id)
-            kickGuest([req.body.party_id, req.body.guest_id], (err, status) => {
-                if (err) {
-                    console.log(err)
-                    res.status(500).send("Server error!");
-                } else {
-                    console.log(status)
-                    res.status(200).send({ "status": 'ok' });
-                } 
-            });
+        getGuestsOfParty2([req.body.party_id], (err, guests) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                console.log('guests: ' + JSON.stringify(guests))
+                for (let i=0; i<guests.length; i++) {
+                    if (guests[i].party_id == req.body.party_id && guests[i].guest_id == req.body.guest_id) {
+                        kickGuest([guests[i].id], (err, status) => {
+                            if (err) {
+                                console.log(err)
+                                res.status(500).send("Server error!");
+                            } else {
+                                console.log('status: ' + status)
+                                res.status(200).send({ "status": 'kicked', id: req.body.guest_id });
+                            } 
+                        });
+                    }
+                }
+            } 
+        })
     } else {
         res.status(401).send("Server error!");
     }
