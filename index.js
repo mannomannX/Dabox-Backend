@@ -23,6 +23,30 @@ router.use(bodyParser.urlencoded({ extended:  false }));
 router.use(bodyParser.json());
 const database = new sqlite3.Database("./my.db");
 
+const axios = require("axios");
+
+const options = {
+  method: 'GET',
+  url: 'https://spotify23.p.rapidapi.com/search/',
+  params: {
+    q: 'Edgar Wasser Kalium',
+    type: 'multi',
+    offset: '0',
+    limit: '10',
+    numberOfTopResults: '5'
+  },
+  headers: {
+    'X-RapidAPI-Key': 'b1904799a1msh36d47b5e29acae1p1b1451jsn94f28310070e',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+
 const  createUsersTable  = () => {
     const  sqlQuery  =  `
         CREATE TABLE IF NOT EXISTS users (
