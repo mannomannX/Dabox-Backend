@@ -41,12 +41,6 @@ const options = {
   }
 };
 
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
-});
-
 const  createUsersTable  = () => {
     const  sqlQuery  =  `
         CREATE TABLE IF NOT EXISTS users (
@@ -229,6 +223,19 @@ createPartyTable();
 createBoxTable();
 createGuestsTable();
 createInviteCodesTable();
+
+router.post('/search', async (req, res) => {
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        await axios.request(options).then(function (response) {
+            console.log(response.data);
+            res.status(200).send(JSON.stringify(response.data));
+        }).catch(function (error) {
+            console.error(error);
+        });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
 
 router.post('/check-if-party-owner', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
