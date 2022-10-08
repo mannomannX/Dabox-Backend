@@ -1,0 +1,2436 @@
+{
+    "albums": {
+        "totalCount": 144,
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:album:5aEWKv99AFjd96MiZAJO78",
+                    "name": "Kalium",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:7H2Hc9WEkHtgGVI8U7DN76",
+                                "profile": {
+                                    "name": "elvinenichols"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e022b06c17ad1d14c3287bd170b",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d000048512b06c17ad1d14c3287bd170b",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b2732b06c17ad1d14c3287bd170b",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2020
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:5dxMnUtukuhPh4Yyh5GMyH",
+                    "name": "Kalium",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:2N1mCWEnihU8p4yd8Nq7ac",
+                                "profile": {
+                                    "name": "Luiz&Winth"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e02654f92d70ffea2894ac02c02",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00004851654f92d70ffea2894ac02c02",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b273654f92d70ffea2894ac02c02",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2017
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:0A2t5lrXCqH6JQGAYNbdVT",
+                    "name": "Kalium",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:2HdzDafdF23YuyehRLGn54",
+                                "profile": {
+                                    "name": "Gater"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e022a35875f27061eebd0e1aed6",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d000048512a35875f27061eebd0e1aed6",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b2732a35875f27061eebd0e1aed6",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2021
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:3coPqLJEOG5cahTVTRrWYM",
+                    "name": "Negroklaro",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:4RjamFQJNT8nVbTKXJDJgv",
+                                "profile": {
+                                    "name": "Kalimba"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e02ac6672700c3a5367672716c2",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00004851ac6672700c3a5367672716c2",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b273ac6672700c3a5367672716c2",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2007
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:3TIE5JnMBW6YUzMZMUZXwH",
+                    "name": "Kalium",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:7nq4EC6wvzzFyQF5Y1Rk27",
+                                "profile": {
+                                    "name": "Mr. Bremson"
+                                }
+                            },
+                            {
+                                "uri": "spotify:artist:3bBPdNmaUj2KGuYv2iX4pm",
+                                "profile": {
+                                    "name": "Diego Valle"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e025310d6bf6caa30c3f60c0e33",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d000048515310d6bf6caa30c3f60c0e33",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b2735310d6bf6caa30c3f60c0e33",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2018
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:68lTzd58CWvXBM3UKafAgG",
+                    "name": "Kaliumcyanid",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:6qIHycJGyzIFBCXc0kg9cM",
+                                "profile": {
+                                    "name": "Edgar Wasser"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e022a660d316660aa03bace97d3",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d000048512a660d316660aa03bace97d3",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b2732a660d316660aa03bace97d3",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2022
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:7kzhNP15TiUF4Jc6U1FJ18",
+                    "name": "Kalium",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:2vtInODOSICXOzWzFEfrK7",
+                                "profile": {
+                                    "name": "MidoriMonki"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e02edd86746f82d618c0f6e21f1",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00004851edd86746f82d618c0f6e21f1",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b273edd86746f82d618c0f6e21f1",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2021
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:1rZTUDYyxdMYExoSiMa9kC",
+                    "name": "Pero La Recuerdo",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:5dmU7FrmtbQaSzIvGsE4Jp",
+                                "profile": {
+                                    "name": "Pancho Barraza"
+                                }
+                            },
+                            {
+                                "uri": "spotify:artist:4RjamFQJNT8nVbTKXJDJgv",
+                                "profile": {
+                                    "name": "Kalimba"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e02b11b954586e8c69b8728a40b",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00004851b11b954586e8c69b8728a40b",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b273b11b954586e8c69b8728a40b",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2017
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:7bpmy7EedHyBtaK4WesKUm",
+                    "name": "Kalium",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:5fYVwtiik0edLOPFyxp3mA",
+                                "profile": {
+                                    "name": "Sophioni Ronio"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e02f98a2e76adb6fe2b40d58bf5",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00004851f98a2e76adb6fe2b40d58bf5",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b273f98a2e76adb6fe2b40d58bf5",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2022
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:1KqtDyZKciHgtDI0jD5sDa",
+                    "name": "Mi Otro Yo",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:4RjamFQJNT8nVbTKXJDJgv",
+                                "profile": {
+                                    "name": "Kalimba"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e027ae177c60330434a7b381565",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d000048517ae177c60330434a7b381565",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b2737ae177c60330434a7b381565",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2008
+                    }
+                }
+            }
+        ]
+    },
+    "artists": {
+        "totalCount": 10,
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:artist:4RjamFQJNT8nVbTKXJDJgv",
+                    "profile": {
+                        "name": "Kalimba"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5eb714e207a203d62693c6587a4",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f178714e207a203d62693c6587a4",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:5FJ8F4IAeu8PsIjAvmTasJ",
+                    "profile": {
+                        "name": "KALIUM"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b2731262801ca87ae8f83db55ea5",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d000048511262801ca87ae8f83db55ea5",
+                                    "width": 64,
+                                    "height": 64
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:30EUtCIypz9UXJFKpFoDto",
+                    "profile": {
+                        "name": "Kalium"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5eb6f9cb162710cb422eb6410e5",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f1786f9cb162710cb422eb6410e5",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:1U1el3k54VvEUzo3ybLPlM",
+                    "profile": {
+                        "name": "Kali Uchis"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5eb8f7371544e0573e58e0abf94",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f1788f7371544e0573e58e0abf94",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:4dgLZMavMm3danubiJxbtw",
+                    "profile": {
+                        "name": "KALUMA"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5eb04ac385df53aaaaa7b979b06",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f17804ac385df53aaaaa7b979b06",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:2JyBoeplCFRw5vh22QREu2",
+                    "profile": {
+                        "name": "Kalium"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5ebb6d2e47a7e33f7c8e8b817b3",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f178b6d2e47a7e33f7c8e8b817b3",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:2NJWI8byqTSqDaJRnqJY2z",
+                    "profile": {
+                        "name": "KALIM"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5ebf7a6dde15f2079d0a99ee1c4",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f178f7a6dde15f2079d0a99ee1c4",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:6b51VjA3tzUHngBqyb3j6Y",
+                    "profile": {
+                        "name": "Kalium"
+                    },
+                    "visuals": {
+                        "avatarImage": null
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:1msxspFqXJh7kVDoRbLblY",
+                    "profile": {
+                        "name": "WHITE KALIUM"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b2739de3adb2138e5193806072e9",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d000048519de3adb2138e5193806072e9",
+                                    "width": 64,
+                                    "height": 64
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:artist:6BnijpjX9vsfbEdebweg0o",
+                    "profile": {
+                        "name": "Kalium 85"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5eba991e2ee9a3ee937c2b6443b",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f178a991e2ee9a3ee937c2b6443b",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "episodes": {
+        "totalCount": 71,
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:episode:0bLh4gNxRV93GRqeSnU5Tx",
+                    "name": "EXTRA: Schüssler Salz Nr. 6 - Kalium sulfuricum D6",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68dd9300e2b356ddb3d2140e0c9",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1fd9300e2b356ddb3d2140e0c9",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8ad9300e2b356ddb3d2140e0c9",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 1175446
+                    },
+                    "releaseDate": {
+                        "isoString": "2022-01-30T07:30:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000f68d52f1d45325cab44ce9fdfaa8",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67656300005f1f52f1d45325cab44ce9fdfaa8",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000ba8a52f1d45325cab44ce9fdfaa8",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "In diesem Podcast erfährst du mehr über die einzelnen Formen und Möglichkeiten der Anwendung von Schüssler Salz Nr. 6 - Kalium sulfuricum D6",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:5mERY428QGVGbs17qtdKR7",
+                    "name": "Hyponatremia to hypothermia to hypothesis to transfer to Natrium to Kalium",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68dbe89e1d873bacee439e878f0",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1fbe89e1d873bacee439e878f0",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8abe89e1d873bacee439e878f0",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 1737317
+                    },
+                    "releaseDate": {
+                        "isoString": "2022-08-20T14:43:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000f68dbe89e1d873bacee439e878f0",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67656300005f1fbe89e1d873bacee439e878f0",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000ba8abe89e1d873bacee439e878f0",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "Energy Transfer Prediction constellation Evidence HypoNATRemia Hypothesis Dissolve and many more!!!  ---   Support this podcast: https://anchor.fm/liam-connerly/support",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:02Hw6wYvrkOgyC7Zq2mkKa",
+                    "name": "EXTRA: Schüssler Salz Nr. 5 - Kalium phosphoricum D6",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68def5a1a0f27fb6097fe536b51",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1fef5a1a0f27fb6097fe536b51",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8aef5a1a0f27fb6097fe536b51",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 1188497
+                    },
+                    "releaseDate": {
+                        "isoString": "2022-01-23T07:30:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000f68d52f1d45325cab44ce9fdfaa8",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67656300005f1f52f1d45325cab44ce9fdfaa8",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000ba8a52f1d45325cab44ce9fdfaa8",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "In diesem Podcast erfährst du mehr über die einzelnen Formen und Möglichkeiten der Anwendung von Schüssler 5 - Kalium phosphoricum D6",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:4wnVLWufk1W5C1Y3y3UzaS",
+                    "name": "EXTRA: Schüssler Salz Nr. 4 - Kalium chloratum D6",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68da385330c137394728174e1ad",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1fa385330c137394728174e1ad",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8aa385330c137394728174e1ad",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 1244098
+                    },
+                    "releaseDate": {
+                        "isoString": "2022-01-16T07:30:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000f68d52f1d45325cab44ce9fdfaa8",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67656300005f1f52f1d45325cab44ce9fdfaa8",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000ba8a52f1d45325cab44ce9fdfaa8",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "In diesem Podcast erfährst du mehr über die einzelnen Formen und Möglichkeiten der Anwendung von Schüssler Salz Nr. 4 - Kalium chloratum D6",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:08vB2NF9QoPN6PXT5bnOsK",
+                    "name": "18. Fosfor och kalium– från avfall till åkermark",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/9511abd6225c08c06f59d732c95bc8cc96295f67",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/774eeb93d18e7467972db59cfba9a778bbf38e53",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/365e3a31d078d1978d4611ae9af280e4debcad7e",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 2815466
+                    },
+                    "releaseDate": {
+                        "isoString": "2020-07-14T23:00:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/9511abd6225c08c06f59d732c95bc8cc96295f67",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/774eeb93d18e7467972db59cfba9a778bbf38e53",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/365e3a31d078d1978d4611ae9af280e4debcad7e",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "Fosfor och kalium är tillsammans med kväve de viktigaste växtnäringsämnena. Då och då larmas det om att de brytningsbara förråden inte räcker så länge  till, samtidigt finns enorma mängder att utvinna av det som vi  traditionellt betraktar som avfall. Det här kommer Easy Minings Patrik  Enfält att diskutera med Göran Berglund i veckans avsnitt. Har du förslag på framtida gäster eller ämnen? Mejla lantbrukspodden@landlantbruk.se.",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:0wKe3mwjmJ146U0CqtgJ0v",
+                    "name": "Bananen auf Intensiv? Störungen des Kalium",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/23952e55a2be3b577be1e4e2c3725f4d652abed9",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/e94853ce68446979e7046a47a56ff6f1107ffa90",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/f060675e9c1bba23e063d00f65edc944967e2a9c",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 578618
+                    },
+                    "releaseDate": {
+                        "isoString": "2020-08-24T08:00:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/23952e55a2be3b577be1e4e2c3725f4d652abed9",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/e94853ce68446979e7046a47a56ff6f1107ffa90",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/f060675e9c1bba23e063d00f65edc944967e2a9c",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "Heute geht es um die Störungen des Kaliums.  Ihr könnt mir gerne unter podcast@ilja-osthoff.de schreiben, wenn Ihr Wünsche oder Anregungen habt",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:6ekw1hznCn1gz3h0LJ4ivG",
+                    "name": "Natrium- / Kalium- / Calcium- und PIEZO-Kanäle einfach erklärt - Selektivität, Funktion und Transportmechanismen",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68de266801b3ad50afb682be730",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1fe266801b3ad50afb682be730",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8ae266801b3ad50afb682be730",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 662569
+                    },
+                    "releaseDate": {
+                        "isoString": "2021-09-30T12:00:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000f68d87ae23872bba7bd0f02e54cd",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67656300005f1f87ae23872bba7bd0f02e54cd",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000ba8a87ae23872bba7bd0f02e54cd",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "Mit dieser Episode findet sich ein weiterer Teil der Reihe über die Themen des Medizinstudiums. Werbung Bücher auf Amazon finden sich unter https://amzn.to/3gjEMvY  ---   Send in a voice message: https://anchor.fm/selbstorientiert/message",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:5feG0yJr0Uk2nmbgoj3VkZ",
+                    "name": "#69 Gesundheitsgeflüster, der Newsletter – Kalium",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68d664b49c96665c1218b99230f",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1f664b49c96665c1218b99230f",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8a664b49c96665c1218b99230f",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 457506
+                    },
+                    "releaseDate": {
+                        "isoString": "2022-02-25T09:48:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/4fdb9f85ab84dfc6979619871f7355d5ea4820a1",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/34c926db535b741b033718f2fe5859f54bd3aaf7",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/9b7a18035184cc441d0e81fe9df718684174b5e7",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "Hast Du Muskelkrämpfe, die sich nicht durch Magnesium beheben lassen? Bist Du erschöpft? Leidest Du an Verstopfung? Dein Blutdruck ist hoch und Dein Herz schlägt arhythmisch? Dann höre unbedingt rein in diese Podcast Folge! Orthomolekulare-Onlineberatung Magnesiumkaliumcitrat Kapseln",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:4IupaxGfJock91BDGOP5jg",
+                    "name": "Vinkistä vihiä: Mikä pienensi syöpäpotilaan kaliumarvot ja turvotti jalat?",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68d645e4ae3b7a2830c951ea557",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1f645e4ae3b7a2830c951ea557",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8a645e4ae3b7a2830c951ea557",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 384048
+                    },
+                    "releaseDate": {
+                        "isoString": "2019-05-28T10:02:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000f68dbe827bb7e72163e3d11c97d4",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67656300005f1fbe827bb7e72163e3d11c97d4",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000ba8abe827bb7e72163e3d11c97d4",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "Pian karboplatiinin ja etoposidin yhdistelmän aloittamisen jälkeen veren kaliumpitoisuus alkoi pienentyä huolimatta kaliumkloridiannoksen suurentamisesta.",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:episode:1OmluWPmc9sSODuKu85jAI",
+                    "name": "#52 Kaliumsparende diuretica, oud maar nog lang niet op",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68dfe330c53b5cc8ea565c241ff",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1ffe330c53b5cc8ea565c241ff",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8afe330c53b5cc8ea565c241ff",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "duration": {
+                        "totalMilliseconds": 1135438
+                    },
+                    "releaseDate": {
+                        "isoString": "2022-01-07T09:00:00Z"
+                    },
+                    "podcast": {
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000f68dfe330c53b5cc8ea565c241ff",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67656300005f1ffe330c53b5cc8ea565c241ff",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6765630000ba8afe330c53b5cc8ea565c241ff",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        }
+                    },
+                    "description": "Kaliumsparende diuretica bestaan uit mineraal receptor antagonisten (MRA) zoals spironolacton, eplerenon en finrenon en uit remmers van het Epitheliale Natrium Kanaal (ENaC). Deze aflevering gaat over de remmers van ENaC, amiloride en triamtereen. Er wordt uitgelegd wat de rol is van ENaC in hypertensie en waarom de ENaC remmers juist kaliumsparend werken. Verder wordt er ingegaan op mogelijke nieuw toepassingen van de ENaC remmers en het voordeel van deze middelen in speciale groepen. ENaC remmers worden in de praktijk in Nederland vooral gecombineerd met thiazide diuretica (zie aflevering #51). Literatuur1.  Sun Q, Sever P. Amiloride: A review. J Renin-angio-aldo S. 2020;21(4):1470320320975893.2.  Hoorn EJ, Ellison DH. Diuretic Resistance. Am J Kidney Dis. 2017;69(1):136–42.3.  Vallée C, Howlin B, Lewis R. Ion Selectivity in the ENaC/DEG Family: A Systematic Review with Supporting Analysis. Int J Mol Sci. 2021;22(20):10998.4.  Tetti M, Monticone S, Burrello J, Matarazzo P, Veglio F, Pasini B, et al. Liddle Syndrome: Review of the Literature and Description of a New Case. Int J Mol Sci. 2018;19(3):812.5.  Hinrichs GR, Jensen BL, Svenningsen P. Mechanisms of sodium retention in nephrotic syndrome. Curr Opin Nephrol Hy. 2020;29(2):207–12.6.  Mutchler SM, Kleyman TR. New insights regarding epithelial Na+ channel regulation and its role in the kidney, immune system and vasculature. Curr Opin Nephrol Hy. 2019;28(2):113–9.7.  Svenningsen P, Hinrichs GR, Zachar R, Ydegaard R, Jensen BL. Physiology and pathophysiology of the plasminogen system in the kidney. Pflügers Archiv - European J Physiology. 2017;469(11):1415–23.8.  Jones E, Rayner B. The importance of the epithelial sodium channel in determining salt sensitivity in people of African origin. Pediatr Nephrol. 2021;36(2):237–43.9.  Svenningsen P, Andersen H, Nielsen LH, Jensen BL. Urinary serine proteases and activation of ENaC in kidney—implications for physiological renal salt handling and hypertensive disorders with albuminuria. Pflügers Archiv - European J Physiology. 2015;467(3):531–42.",
+                    "contentRating": {
+                        "label": "NONE"
+                    }
+                }
+            }
+        ]
+    },
+    "genres": {
+        "totalCount": 0,
+        "items": []
+    },
+    "playlists": {
+        "totalCount": 16,
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:playlist:6PdhKC5abfUZVTy4f6spj4",
+                    "name": "Kalium?",
+                    "description": "rawr",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://mosaic.scdn.co/640/ab67616d00001e0251c697da13ab218a493fb964ab67616d00001e0281231a85c1ea80788090c24bab67616d00001e0297d53d76671f8d9a6549c093ab67616d00001e02fd811288e2084bde77b3bf67",
+                                        "width": 640,
+                                        "height": 640
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/300/ab67616d00001e0251c697da13ab218a493fb964ab67616d00001e0281231a85c1ea80788090c24bab67616d00001e0297d53d76671f8d9a6549c093ab67616d00001e02fd811288e2084bde77b3bf67",
+                                        "width": 300,
+                                        "height": 300
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/60/ab67616d00001e0251c697da13ab218a493fb964ab67616d00001e0281231a85c1ea80788090c24bab67616d00001e0297d53d76671f8d9a6549c093ab67616d00001e02fd811288e2084bde77b3bf67",
+                                        "width": 60,
+                                        "height": 60
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Nya-"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:3N8xI3rULrX60m7gxaYXMw",
+                    "name": "Kalium",
+                    "description": "",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://mosaic.scdn.co/640/ab67616d00001e02072e9faef2ef7b6db63834a3ab67616d00001e0219fc40e920401ce322487abfab67616d00001e0267401abda9d765ac669f6ea2ab67616d00001e02dea510881ec1e506485303e4",
+                                        "width": 640,
+                                        "height": 640
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/300/ab67616d00001e02072e9faef2ef7b6db63834a3ab67616d00001e0219fc40e920401ce322487abfab67616d00001e0267401abda9d765ac669f6ea2ab67616d00001e02dea510881ec1e506485303e4",
+                                        "width": 300,
+                                        "height": 300
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/60/ab67616d00001e02072e9faef2ef7b6db63834a3ab67616d00001e0219fc40e920401ce322487abfab67616d00001e0267401abda9d765ac669f6ea2ab67616d00001e02dea510881ec1e506485303e4",
+                                        "width": 60,
+                                        "height": 60
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "johan.mundheim"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:4NvlGHfjkqcw1V8j1LD9xl",
+                    "name": "Kalium",
+                    "description": "In me un po&#x27; perso, perso nel mio tempo.",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://i.scdn.co/image/ab67706c0000da843f8b3610d7e6c5747f82a683",
+                                        "width": 640,
+                                        "height": 640
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Potassio"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:7g1aAJyPPB5wjRBoQBCuKq",
+                    "name": "Kalium(potassium) all the way to Aurem(gold)",
+                    "description": "",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://mosaic.scdn.co/640/ab67616d00001e0243e531d5f69170aba281ef43ab67616d00001e026b3463e7160d333ada4b175aab67616d00001e02e7fbc0883149094912559f2cab67616d00001e02eed722040c6810f7a7da93ea",
+                                        "width": 640,
+                                        "height": 640
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/300/ab67616d00001e0243e531d5f69170aba281ef43ab67616d00001e026b3463e7160d333ada4b175aab67616d00001e02e7fbc0883149094912559f2cab67616d00001e02eed722040c6810f7a7da93ea",
+                                        "width": 300,
+                                        "height": 300
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/60/ab67616d00001e0243e531d5f69170aba281ef43ab67616d00001e026b3463e7160d333ada4b175aab67616d00001e02e7fbc0883149094912559f2cab67616d00001e02eed722040c6810f7a7da93ea",
+                                        "width": 60,
+                                        "height": 60
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "ilman"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:2RRoIFimzQ3QQGirtLgmil",
+                    "name": "kalium",
+                    "description": "w&#x2F; vox",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://i.scdn.co/image/ab67706c0000da847bccd2965cc91ee2d391b658",
+                                        "width": 640,
+                                        "height": 640
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "1243680566"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:4fzsKOyvAQu6qP5EP1JBNX",
+                    "name": "Kalium",
+                    "description": "Life is a long journey. Nobody know the end, just enjoy it.",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://i.scdn.co/image/ab67706c0000da84dd2921848de99d277b02c7d5",
+                                        "width": 640,
+                                        "height": 640
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": ">||<"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:23YyDmiCSbMiM6uYoGrVr6",
+                    "name": "BASS WORSHIP 🛐🔥",
+                    "description": "All kinds of best BASS music (Future bass and most genres which end with STEP) Submit here -&gt; @kalium.live on Instagram officialkalium@gmail.com",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://i.scdn.co/image/ab67706c0000da841ea9144431c89507691bf6fd",
+                                        "width": 640,
+                                        "height": 640
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Kalium"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:26uYLLUx9759mBZ2bmrnFa",
+                    "name": "Kalium-39",
+                    "description": "",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://i.scdn.co/image/ab67706c0000da840e93723188d9ca9289b4b0b1",
+                                        "width": 640,
+                                        "height": 640
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Potassio"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:4SoSKCYdXLtNlQeZfcTeAP",
+                    "name": "kaliumkanone",
+                    "description": "&gt;20km&#x2F;h",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://mosaic.scdn.co/640/ab67616d00001e0254c6edd554935d73e159e199ab67616d00001e02631810af03785dbad83f5c81ab67616d00001e02ca10fae7d292c52f7e8b11caab67616d00001e02d6c3ad6a2a27471e1d5e8103",
+                                        "width": 640,
+                                        "height": 640
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/300/ab67616d00001e0254c6edd554935d73e159e199ab67616d00001e02631810af03785dbad83f5c81ab67616d00001e02ca10fae7d292c52f7e8b11caab67616d00001e02d6c3ad6a2a27471e1d5e8103",
+                                        "width": 300,
+                                        "height": 300
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/60/ab67616d00001e0254c6edd554935d73e159e199ab67616d00001e02631810af03785dbad83f5c81ab67616d00001e02ca10fae7d292c52f7e8b11caab67616d00001e02d6c3ad6a2a27471e1d5e8103",
+                                        "width": 60,
+                                        "height": 60
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Dominik"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:4lfZHdqZmUU4LJFNNvHXRo",
+                    "name": "Quellbrunn Medium",
+                    "description": "Wasser, Kohlensäure, Natrium (Na+) 5, 7 mg&#x2F;l, Kalium (K+) 2, 6 mg&#x2F;l, Magnesium (Mg2+) 5, 3 mg&#x2F;l, Calcium (Ca 2+) 12, 7 mg&#x2F;l, Chlorid (Cl-) 8, 4 mg&#x2F;l, Hydrogencarbonat (HCO3 -) 67, 0 mg&#x2F;l, Sulfat (SO4 2-) 1, 7 mg&#x2F;l, Kieselsäure (Meta) 36, 1 mg&#x2F;l",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://i.scdn.co/image/ab67706c0000da84956c1718460120f7e05e7904",
+                                        "width": 640,
+                                        "height": 640
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "ticreh"
+                    }
+                }
+            }
+        ]
+    },
+    "podcasts": {
+        "totalCount": 2,
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:show:60xU0yqMPsUsHHN8GICFrp",
+                    "name": "Kalium",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/cf0f160e03c900c1463c7a2a2cd2fb78fa463620",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/46638b5b9837100d1e46280f85d56432f54a0281",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/0103c239b5723a1ae78e0b9fa6aa76beabccd0c2",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "type": "PODCAST",
+                    "publisher": {
+                        "name": "Podcast Kalium"
+                    },
+                    "mediaType": "AUDIO"
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:show:1wVSPEYcy2fskR99p6vXxm",
+                    "name": "K",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000f68d20592779995887765a396850",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67656300005f1f20592779995887765a396850",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab6765630000ba8a20592779995887765a396850",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "type": "PODCAST",
+                    "publisher": {
+                        "name": "Domingo ismael Neto"
+                    },
+                    "mediaType": "AUDIO"
+                }
+            }
+        ]
+    },
+    "topResults": {
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:artist:4RjamFQJNT8nVbTKXJDJgv",
+                    "profile": {
+                        "name": "Kalimba"
+                    },
+                    "visuals": {
+                        "avatarImage": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000e5eb714e207a203d62693c6587a4",
+                                    "width": 640,
+                                    "height": 640
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab6761610000f178714e207a203d62693c6587a4",
+                                    "width": 160,
+                                    "height": 160
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:0kiUjW1l4iUmQPYrB4mX27",
+                    "id": "0kiUjW1l4iUmQPYrB4mX27",
+                    "name": "KALI MA!",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:08ksLZlyZkxHlzSm8o5Ham",
+                        "name": "LIL DARKIE CLASSICS",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e02069f01a0de9805beafec829f",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00004851069f01a0de9805beafec829f",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b273069f01a0de9805beafec829f",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "08ksLZlyZkxHlzSm8o5Ham",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/08ksLZlyZkxHlzSm8o5Ham?si=jEoDIwiJS-aad5RYaxoSOg"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:62F9BiUmjqeXbBztCwiX1U",
+                                "profile": {
+                                    "name": "Lil Darkie"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "EXPLICIT"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 264392
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:6PdhKC5abfUZVTy4f6spj4",
+                    "name": "Kalium?",
+                    "description": "rawr",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://mosaic.scdn.co/640/ab67616d00001e0251c697da13ab218a493fb964ab67616d00001e0281231a85c1ea80788090c24bab67616d00001e0297d53d76671f8d9a6549c093ab67616d00001e02fd811288e2084bde77b3bf67",
+                                        "width": 640,
+                                        "height": 640
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/300/ab67616d00001e0251c697da13ab218a493fb964ab67616d00001e0281231a85c1ea80788090c24bab67616d00001e0297d53d76671f8d9a6549c093ab67616d00001e02fd811288e2084bde77b3bf67",
+                                        "width": 300,
+                                        "height": 300
+                                    },
+                                    {
+                                        "url": "https://mosaic.scdn.co/60/ab67616d00001e0251c697da13ab218a493fb964ab67616d00001e0281231a85c1ea80788090c24bab67616d00001e0297d53d76671f8d9a6549c093ab67616d00001e02fd811288e2084bde77b3bf67",
+                                        "width": 60,
+                                        "height": 60
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Nya-"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:album:5aEWKv99AFjd96MiZAJO78",
+                    "name": "Kalium",
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:7H2Hc9WEkHtgGVI8U7DN76",
+                                "profile": {
+                                    "name": "elvinenichols"
+                                }
+                            }
+                        ]
+                    },
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d00001e022b06c17ad1d14c3287bd170b",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d000048512b06c17ad1d14c3287bd170b",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/ab67616d0000b2732b06c17ad1d14c3287bd170b",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "date": {
+                        "year": 2020
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:show:60xU0yqMPsUsHHN8GICFrp",
+                    "name": "Kalium",
+                    "coverArt": {
+                        "sources": [
+                            {
+                                "url": "https://i.scdn.co/image/cf0f160e03c900c1463c7a2a2cd2fb78fa463620",
+                                "width": 64,
+                                "height": 64
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/46638b5b9837100d1e46280f85d56432f54a0281",
+                                "width": 300,
+                                "height": 300
+                            },
+                            {
+                                "url": "https://i.scdn.co/image/0103c239b5723a1ae78e0b9fa6aa76beabccd0c2",
+                                "width": 640,
+                                "height": 640
+                            }
+                        ]
+                    },
+                    "type": "PODCAST",
+                    "publisher": {
+                        "name": "Podcast Kalium"
+                    },
+                    "mediaType": "AUDIO"
+                }
+            }
+        ],
+        "featured": [
+            {
+                "data": {
+                    "uri": "spotify:playlist:37i9dQZF1DZ06evO2QP2zm",
+                    "name": "This Is Kalimba",
+                    "description": "This is Kalimba. The essential tracks, all in one playlist.",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://thisis-images.scdn.co/37i9dQZF1DZ06evO2QP2zm-default.jpg",
+                                        "width": null,
+                                        "height": null
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Spotify"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:playlist:37i9dQZF1E4ky8VemO1W5F",
+                    "name": "Kalimba Radio",
+                    "description": "",
+                    "images": {
+                        "items": [
+                            {
+                                "sources": [
+                                    {
+                                        "url": "https://seeded-session-images.scdn.co/v1/img/artist/4RjamFQJNT8nVbTKXJDJgv/en",
+                                        "width": null,
+                                        "height": null
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "owner": {
+                        "name": "Spotify"
+                    }
+                }
+            }
+        ]
+    },
+    "tracks": {
+        "totalCount": 218,
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:track:0kiUjW1l4iUmQPYrB4mX27",
+                    "id": "0kiUjW1l4iUmQPYrB4mX27",
+                    "name": "KALI MA!",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:08ksLZlyZkxHlzSm8o5Ham",
+                        "name": "LIL DARKIE CLASSICS",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e02069f01a0de9805beafec829f",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00004851069f01a0de9805beafec829f",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b273069f01a0de9805beafec829f",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "08ksLZlyZkxHlzSm8o5Ham",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/08ksLZlyZkxHlzSm8o5Ham?si=KU_0K3G5RBu7kGV1rZzIKA"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:62F9BiUmjqeXbBztCwiX1U",
+                                "profile": {
+                                    "name": "Lil Darkie"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "EXPLICIT"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 264392
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:78tdYoL9PpnnF3eYnhvbs1",
+                    "id": "78tdYoL9PpnnF3eYnhvbs1",
+                    "name": "Kalium",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:2BG8KuVhYi3moArFtvuRSc",
+                        "name": "Hydrargyrum",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e02b80f4822ffe8323eb2302735",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00004851b80f4822ffe8323eb2302735",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b273b80f4822ffe8323eb2302735",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "2BG8KuVhYi3moArFtvuRSc",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/2BG8KuVhYi3moArFtvuRSc?si=teFBoqy4R72KQBFXSN0hDA"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:6H7YXIE4ZT1Nxa2krwL6N4",
+                                "profile": {
+                                    "name": "1luu"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 445066
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:4HsWOiIPuQ6tCT3suvGWMK",
+                    "id": "4HsWOiIPuQ6tCT3suvGWMK",
+                    "name": "Kali Ma",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:3umOBqXWR9VnJTQoe9Qkkj",
+                        "name": "Life's Not Out To Get You",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e0282a3560435840c14a72f6b6e",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000485182a3560435840c14a72f6b6e",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b27382a3560435840c14a72f6b6e",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "3umOBqXWR9VnJTQoe9Qkkj",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/3umOBqXWR9VnJTQoe9Qkkj?si=ytG8Jj40SGaVK0tHXT1rxA"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:2TM0qnbJH4QPhGMCdPt7fH",
+                                "profile": {
+                                    "name": "Neck Deep"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 170796
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:7mMDzNWNWLKYC7535LY2NA",
+                    "id": "7mMDzNWNWLKYC7535LY2NA",
+                    "name": "Kaliumcyanid",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:68lTzd58CWvXBM3UKafAgG",
+                        "name": "Kaliumcyanid",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e022a660d316660aa03bace97d3",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d000048512a660d316660aa03bace97d3",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b2732a660d316660aa03bace97d3",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "68lTzd58CWvXBM3UKafAgG",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/68lTzd58CWvXBM3UKafAgG?si=RKx7GHb1SLKFffdpFH7lIw"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:6qIHycJGyzIFBCXc0kg9cM",
+                                "profile": {
+                                    "name": "Edgar Wasser"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "EXPLICIT"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 174786
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:74pyNZtnAUjIES7hgCwX8D",
+                    "id": "74pyNZtnAUjIES7hgCwX8D",
+                    "name": "Kalium",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:0A2t5lrXCqH6JQGAYNbdVT",
+                        "name": "Kalium",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e022a35875f27061eebd0e1aed6",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d000048512a35875f27061eebd0e1aed6",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b2732a35875f27061eebd0e1aed6",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "0A2t5lrXCqH6JQGAYNbdVT",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/0A2t5lrXCqH6JQGAYNbdVT?si=_IeqZjvvRJOHXCwuhRiRTg"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:2HdzDafdF23YuyehRLGn54",
+                                "profile": {
+                                    "name": "Gater"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 136744
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:0kB0LelkrakYlHvemvzAmr",
+                    "id": "0kB0LelkrakYlHvemvzAmr",
+                    "name": "Kalium",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:3WzYMpkpBaTdtmWf8fFSnp",
+                        "name": "Vaalo",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e028c2324c95246d6f24ab06bcc",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d000048518c2324c95246d6f24ab06bcc",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b2738c2324c95246d6f24ab06bcc",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "3WzYMpkpBaTdtmWf8fFSnp",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/3WzYMpkpBaTdtmWf8fFSnp?si=ITbS3A4NQFKqtlyxwP-EGA"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:0v7INTOLlpwdFmMdV6BEa9",
+                                "profile": {
+                                    "name": "Emotionatic"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 117806
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:4gDaETRj7NkiQrmSfM7byl",
+                    "id": "4gDaETRj7NkiQrmSfM7byl",
+                    "name": "Kalium",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:5dxMnUtukuhPh4Yyh5GMyH",
+                        "name": "Kalium",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e02654f92d70ffea2894ac02c02",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00004851654f92d70ffea2894ac02c02",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b273654f92d70ffea2894ac02c02",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "5dxMnUtukuhPh4Yyh5GMyH",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/5dxMnUtukuhPh4Yyh5GMyH?si=PDlMguIESviaIISWg_B22A"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:2N1mCWEnihU8p4yd8Nq7ac",
+                                "profile": {
+                                    "name": "Luiz&Winth"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 453120
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:03xQPQTyKsS8WeDqJ2FpwJ",
+                    "id": "03xQPQTyKsS8WeDqJ2FpwJ",
+                    "name": "KALIUM",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:2arv5RXLXoF35cd1ZpmleL",
+                        "name": "KALIUM",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e02e311c993466862a184ac3a2d",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00004851e311c993466862a184ac3a2d",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b273e311c993466862a184ac3a2d",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "2arv5RXLXoF35cd1ZpmleL",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/2arv5RXLXoF35cd1ZpmleL?si=xCZnQR-yS9yc7bl2LTmeDg"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:47nVYtjq0qDvFXkAuDDMot",
+                                "profile": {
+                                    "name": "Ranskis"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 205239
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:5GhwbTXDdrw2naG8Mg8yRH",
+                    "id": "5GhwbTXDdrw2naG8Mg8yRH",
+                    "name": "Kalium",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:54U2466wZ5tQunAH7je7kv",
+                        "name": "War on Demand",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e02fd1fe2630ebd37d4e83e097c",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00004851fd1fe2630ebd37d4e83e097c",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b273fd1fe2630ebd37d4e83e097c",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "54U2466wZ5tQunAH7je7kv",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/54U2466wZ5tQunAH7je7kv?si=Hxeo-mBZTumPktWynH8Thw"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:6UGYnBRZ0QFVn9x9lB1WkU",
+                                "profile": {
+                                    "name": "Sidephex"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 354692
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:track:3mtThJNrqACi4f6GJeduAR",
+                    "id": "3mtThJNrqACi4f6GJeduAR",
+                    "name": "Pero La Recuerdo",
+                    "albumOfTrack": {
+                        "uri": "spotify:album:1rZTUDYyxdMYExoSiMa9kC",
+                        "name": "Pero La Recuerdo",
+                        "coverArt": {
+                            "sources": [
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00001e02b11b954586e8c69b8728a40b",
+                                    "width": 300,
+                                    "height": 300
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d00004851b11b954586e8c69b8728a40b",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://i.scdn.co/image/ab67616d0000b273b11b954586e8c69b8728a40b",
+                                    "width": 640,
+                                    "height": 640
+                                }
+                            ]
+                        },
+                        "id": "1rZTUDYyxdMYExoSiMa9kC",
+                        "sharingInfo": {
+                            "shareUrl": "https://open.spotify.com/album/1rZTUDYyxdMYExoSiMa9kC?si=R9B6D_BXR8-u2XMPbTAt0Q"
+                        }
+                    },
+                    "artists": {
+                        "items": [
+                            {
+                                "uri": "spotify:artist:5dmU7FrmtbQaSzIvGsE4Jp",
+                                "profile": {
+                                    "name": "Pancho Barraza"
+                                }
+                            },
+                            {
+                                "uri": "spotify:artist:4RjamFQJNT8nVbTKXJDJgv",
+                                "profile": {
+                                    "name": "Kalimba"
+                                }
+                            }
+                        ]
+                    },
+                    "contentRating": {
+                        "label": "NONE"
+                    },
+                    "duration": {
+                        "totalMilliseconds": 242906
+                    },
+                    "playability": {
+                        "playable": true
+                    }
+                }
+            }
+        ]
+    },
+    "users": {
+        "totalCount": 63,
+        "items": [
+            {
+                "data": {
+                    "uri": "spotify:user:6lrog0swxj9ewj56jvrn57ju5",
+                    "id": "6lrog0swxj9ewj56jvrn57ju5",
+                    "displayName": "Kalium",
+                    "username": "6lrog0swxj9ewj56jvrn57ju5",
+                    "image": {
+                        "smallImageUrl": "https://i.scdn.co/image/ab67757000003b8271676d5e565ff2b4a739df33",
+                        "largeImageUrl": "https://i.scdn.co/image/ab6775700000ee8571676d5e565ff2b4a739df33"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:121229278",
+                    "id": "121229278",
+                    "displayName": "Kalium D'onte Ewing",
+                    "username": "121229278",
+                    "image": {
+                        "smallImageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-1/195080784_10226642755239890_5479110670020440009_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=103&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=BGDMQyCM5uYAX9fzMvV&_nc_ht=scontent-atl3-1.xx&edm=AP4hL3IEAAAA&oh=00_AT9LHljAXsBiyjwGRureONEM8ZmJWPCEX93F_r1-izNezQ&oe=63680238",
+                        "largeImageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-1/195080784_10226642755239890_5479110670020440009_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=0c64ff&_nc_ohc=BGDMQyCM5uYAX9fzMvV&_nc_ht=scontent-atl3-1.xx&edm=AP4hL3IEAAAA&oh=00_AT_1nhzJHNaGgLc0YWC8d3HKU5tuRYQ5RKOrLzRpbrqtvA&oe=63680238"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:p6967t0pghxyn2rfosyh4t008",
+                    "id": "p6967t0pghxyn2rfosyh4t008",
+                    "displayName": "Kalium",
+                    "username": "p6967t0pghxyn2rfosyh4t008",
+                    "image": {
+                        "smallImageUrl": "https://i.scdn.co/image/ab67757000003b82106631f225d4fdeaf4459577",
+                        "largeImageUrl": "https://i.scdn.co/image/ab6775700000ee85106631f225d4fdeaf4459577"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:1192908758",
+                    "id": "1192908758",
+                    "displayName": "Kali Kalium",
+                    "username": "1192908758",
+                    "image": {
+                        "smallImageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-1/66431804_10218062936557021_7578013685445033984_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=104&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=uqHO9YRQZikAX9K2Riv&_nc_ht=scontent-atl3-1.xx&edm=AP4hL3IEAAAA&oh=00_AT8UBz1oTbTu3UIeMpZsfNGAbFQEec9K63d26tqDp1kztw&oe=63664AEC",
+                        "largeImageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-1/66431804_10218062936557021_7578013685445033984_n.jpg?stp=dst-jpg_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=0c64ff&_nc_ohc=uqHO9YRQZikAX9K2Riv&_nc_ht=scontent-atl3-1.xx&edm=AP4hL3IEAAAA&oh=00_AT9HQFJgd06XKWDdw16i8XLqanlI94VeiJjM4Dt-t8JKJg&oe=63664AEC"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:227wer6xnzvurg4wmc2fqvcvi",
+                    "id": "227wer6xnzvurg4wmc2fqvcvi",
+                    "displayName": "Kalium Fill",
+                    "username": "227wer6xnzvurg4wmc2fqvcvi",
+                    "image": {
+                        "smallImageUrl": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10152783952893266&height=50&width=50&ext=1667860341&hash=AeRi_j9vo3kSbusa_l4",
+                        "largeImageUrl": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10152783952893266&height=300&width=300&ext=1667860341&hash=AeTnrvF8FlStRjQrHY8"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:1295951867",
+                    "id": "1295951867",
+                    "displayName": "Créateur Kalium",
+                    "username": "1295951867",
+                    "image": {
+                        "smallImageUrl": "https://scontent-iad3-2.xx.fbcdn.net/v/t1.6435-1/134038527_10158466027251939_6920749786200822341_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=103&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=xSHVeN_4JhwAX-kYRb2&_nc_ht=scontent-iad3-2.xx&edm=AP4hL3IEAAAA&oh=00_AT9nEzbNq5IER9MHtGnA51rvD88HrXzysIA0_l-_D2g3vw&oe=6368E581",
+                        "largeImageUrl": "https://scontent-iad3-2.xx.fbcdn.net/v/t1.6435-1/134038527_10158466027251939_6920749786200822341_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=0c64ff&_nc_ohc=xSHVeN_4JhwAX-kYRb2&_nc_ht=scontent-iad3-2.xx&edm=AP4hL3IEAAAA&oh=00_AT_cQu1R12LCFk-hqDFQsIirMow8uYurnpIaZxc2AfqwWQ&oe=6368E581"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:11170741662",
+                    "id": "11170741662",
+                    "displayName": "Kalium Lloyd",
+                    "username": "11170741662",
+                    "image": {
+                        "smallImageUrl": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/287823210_2169466006565227_5934108668933485774_n.jpg?stp=c0.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=108&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=tj6CNO5HGwgAX_IeTJB&_nc_ht=scontent-iad3-2.xx&edm=AP4hL3IEAAAA&oh=00_AT8Q-FvSyPcPRAQDTJeqVNI7MIF0OZTqs1S3WIQv5375Dg&oe=63469138",
+                        "largeImageUrl": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/287823210_2169466006565227_5934108668933485774_n.jpg?stp=c0.0.304.304a_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=0c64ff&_nc_ohc=tj6CNO5HGwgAX_IeTJB&_nc_ht=scontent-iad3-2.xx&edm=AP4hL3IEAAAA&oh=00_AT_TaKn_aeaONXNmq3Kv1pPaJGsA3Xl4gaOnxovgxw7q8g&oe=63469138"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:31z7cm5nswjf7uszgvjls5kjt6li",
+                    "id": "31z7cm5nswjf7uszgvjls5kjt6li",
+                    "displayName": "Kalium",
+                    "username": "31z7cm5nswjf7uszgvjls5kjt6li",
+                    "image": {
+                        "smallImageUrl": "https://i.scdn.co/image/ab67757000003b826b9be7332a27e6b04941b3a5",
+                        "largeImageUrl": "https://i.scdn.co/image/ab6775700000ee856b9be7332a27e6b04941b3a5"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:33l843oe8g822bsjfexxpjidv",
+                    "id": "33l843oe8g822bsjfexxpjidv",
+                    "displayName": "Kalium",
+                    "username": "33l843oe8g822bsjfexxpjidv",
+                    "image": {
+                        "smallImageUrl": "https://i.scdn.co/image/ab67757000003b820422507ffaed8ca7a31f171b",
+                        "largeImageUrl": "https://i.scdn.co/image/ab6775700000ee850422507ffaed8ca7a31f171b"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "uri": "spotify:user:vg1nlwgi126x3n4migl1tuy3m",
+                    "id": "vg1nlwgi126x3n4migl1tuy3m",
+                    "displayName": "Kalium",
+                    "username": "vg1nlwgi126x3n4migl1tuy3m",
+                    "image": {
+                        "smallImageUrl": "https://i.scdn.co/image/ab67757000003b82952040d4e7d617c5407ac76d",
+                        "largeImageUrl": "https://i.scdn.co/image/ab6775700000ee85952040d4e7d617c5407ac76d"
+                    }
+                }
+            }
+        ]
+    }
+}
