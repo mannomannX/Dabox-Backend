@@ -209,25 +209,52 @@ createGuestsTable();
 createInviteCodesTable();
 
 router.post('/search', async (req, res) => {
+    let options
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
-        let options = {
-            method: 'GET',
-            url: 'https://spotify23.p.rapidapi.com/search/',
-            params: {
-              q: String(req.body.search_input),
-              type: 'multi',
-              offset: '0',
-              limit: '10',
-              numberOfTopResults: '5'
-            },
-            headers: {
-              'X-RapidAPI-Key': 'b1904799a1msh36d47b5e29acae1p1b1451jsn94f28310070e',
-              'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-            }
-          };
+        if (req.body.offset) {
+            options = {
+                method: 'GET',
+                url: 'https://spotify23.p.rapidapi.com/search/',
+                params: {
+                  q: String(req.body.search_input),
+                  type: 'multi',
+                  offset: String(req.body.offset),
+                  limit: '10',
+                  numberOfTopResults: '5'
+                },
+                headers: {
+                  'X-RapidAPI-Key': 'b1904799a1msh36d47b5e29acae1p1b1451jsn94f28310070e',
+                  'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+                }
+              };
+        } else {
+            options = {
+                method: 'GET',
+                url: 'https://spotify23.p.rapidapi.com/search/',
+                params: {
+                  q: String(req.body.search_input),
+                  type: 'multi',
+                  offset: "0",
+                  limit: '10',
+                  numberOfTopResults: '5'
+                },
+                headers: {
+                  'X-RapidAPI-Key': 'b1904799a1msh36d47b5e29acae1p1b1451jsn94f28310070e',
+                  'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+                }
+              };
+        }
         await axios.request(options).then(function (response) {
-            console.log(response.data);
-            res.status(200).send(JSON.stringify(response.data));
+            //console.log(response.data);
+            let tracks = []
+            response.data.tracks.items.forEach((track) => {
+                tracks.push({
+                    trackName: track.data.name,
+                    artist: track.data.artists.items[0].profile.name
+                })
+            })
+            console.log(tracks)
+            res.status(200).send(JSON.stringify(tracks));
         }).catch(function (error) {
             console.error(error);
             res.status(401).send("Server error!");
@@ -565,9 +592,9 @@ router.post('/join-code', (req, res) => {
         let decodedJWT = jwt.decode(req.body.access_token);
         let invite = String(req.body.code).split('-');
         let invite_code = invite[0]
-        console.log('invite_code: ' + invite_code)
+        //console.log('invite_code: ' + invite_code)
         let party_id = invite[1]
-        console.log('party_id: ' + party_id)
+        //console.log('party_id: ' + party_id)
  
         let invitation;
         let invitationValid = false;
@@ -579,7 +606,7 @@ router.post('/join-code', (req, res) => {
                 /*console.log('party_id='+party_id)
                 console.log('activeInvitations[i].party_id='+activeInvitations[i].party_id)
                 console.log('invite_code='+invite_code)*/
-                console.log('activeInvitations[i].invite_code='+activeInvitations[i].invite_code)
+                //console.log('activeInvitations[i].invite_code='+activeInvitations[i].invite_code)
                 if (party_id == activeInvitations[i].party_id && invite_code == activeInvitations[i].invite_code) {
                     invitation = activeInvitations[i];
                     invitationValid = true;
@@ -617,7 +644,7 @@ router.post('/join-code', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    res.status(200).send('This is an authentication server');
+    res.status(200).send('This is a server!');
 });
 
 router.post('/register', (req, res) => {
