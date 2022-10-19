@@ -842,22 +842,17 @@ router.post('/check-login', (req, res) => {
 router.post('/update-user-name', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        console.log(decodedJWT);
         let newUserName = req.body.newUserName;
-        console.log('newUserName: ' + newUserName);
-        console.log('userId: ' + decodedJWT.id);
+        // is username already taken is missing
         try {
-
-
-                updateUserName(newUserName, decodedJWT.id, (err) => {
-                    if (err) {
-                        console.log(err)
-                    } else {
-
-                    }
-                });
-            
-            res.status(200).send({ "status": 'ok' });
+            updateUserName(newUserName, decodedJWT.id, (err) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).send({ "status": 'changeFailure' });
+                } else {
+                    res.status(200).send({ "status": 'changeSuccess' });
+                }
+            });
         } catch (err) {
             console.log(err)
             res.status(500).send("Server error!");
