@@ -84,6 +84,19 @@ const  createGuestsTable  = () => {
     return  database.run(sqlQuery);
 }
 
+const  createWishesTable  = () => {
+    const  sqlQuery  =  `
+        CREATE TABLE IF NOT EXISTS wishes (
+        id integer PRIMARY KEY,
+        party_id integer,
+        guest_id integer,
+        track_name text,
+        artist text,
+        created_at text)`;
+
+    return  database.run(sqlQuery);
+}
+
 const  findUserByEmail  = (email, cb) => {
     return  database.get(`SELECT id, name, email, password, profile_image FROM users WHERE email = ?`,[email], (err, row) => {
             cb(err, row)
@@ -202,11 +215,76 @@ const  checkIfPartyOwner  = (info, cb) => {
     });
 }
 
+const  getWishesOfParty  = (party_id, cb) => {
+    return  database.all(`SELECT id, party_id, guest_id, track_name, artist, created_at FROM wishes WHERE party_id = ?`,[party_id], (err, row) => {
+        //console.log(row)
+            cb(err, row)
+    });
+}
+
+const  createSongWish  = (wish, cb) => {
+    return  database.run('INSERT INTO wishes (party_id, guest_id, track_name, artist, created_at) VALUES (?,?,?,?,?)',wish, (err) => {
+        cb(err)
+    });
+}
+
 createUsersTable();
 createPartyTable();
 createBoxTable();
 createGuestsTable();
 createInviteCodesTable();
+createWishesTable();
+
+router.post('/wish-song', async (req, res) => {
+        // es fehlt: check if requesting user_id is really in party
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        createSongWish([req.body.currentParty, decodedJWT.id, req.body.trackName, req.body.artist, moment().toString()], (err) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                res.status(200).send({ status: "ok" });
+            }
+        })
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
+router.post('/get-wishes-of-party', async (req, res) => {
+    // es fehlt: check if requesting user_id is really in party
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        getWishesOfParty([req.body.party_id], (err, wishes) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                try {
+                    let songWishes = []
+                    for (let i = 0; i < wishes.length; i++) {
+                        if (wishes[i].party_id == req.body.party_id) {
+                            songWishes.push({
+                                trackName: wishes[i].track_name,
+                                createdAt: wishes[i].created_at
+                            });
+                            songWishes = songWishes.sort((b, a) => {
+                                return moment(a.createdAt).diff(b.createdAt);
+                            });
+                        }
+                    }
+                    res.status(200).send({ songWishes: songWishes });
+                }
+                catch (err) {
+                    console.log(err)
+                    res.status(500).send("Server error!");
+                }
+            }
+        })
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
 
 router.post('/search', async (req, res) => {
     let options
