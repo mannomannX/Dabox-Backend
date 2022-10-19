@@ -870,17 +870,14 @@ router.post('/update-profile-image', (req, res) => {
         console.log('newProfileImage: ' + newProfileImage);
         console.log('userId: ' + decodedJWT.id);
         try {
-
-
             updateProfileImage(newProfileImage, decodedJWT.id, (err) => {
-                    if (err) {
-                        console.log(err)
-                    } else {
-
-                    }
-                });
-            
-            res.status(200).send({ "status": 'ok' });
+                if (err) {
+                    console.log(err)
+                    res.status(500).send("Server error!");
+                } else {
+                    res.status(200).send({ "status": 'ok' });
+                }
+            });
         } catch (err) {
             console.log(err)
             res.status(500).send("Server error!");
