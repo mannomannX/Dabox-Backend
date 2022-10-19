@@ -88,6 +88,7 @@ const  createWishesTable  = () => {
     const  sqlQuery  =  `
         CREATE TABLE IF NOT EXISTS wishes (
         id integer PRIMARY KEY,
+        spotify_id text,
         party_id integer,
         guest_id integer,
         track_name text,
@@ -216,15 +217,20 @@ const  checkIfPartyOwner  = (info, cb) => {
 }
 
 const  getWishesOfParty  = (party_id, cb) => {
-    return  database.all(`SELECT id, party_id, guest_id, track_name, artist, created_at FROM wishes WHERE party_id = ?`,[party_id], (err, row) => {
-        //console.log(row)
+    return  database.all(`SELECT id, spotify_id, party_id, guest_id, track_name, artist, created_at FROM wishes WHERE party_id = ?`,[party_id], (err, row) => {
             cb(err, row)
     });
 }
 
 const  createSongWish  = (wish, cb) => {
-    return  database.run('INSERT INTO wishes (party_id, guest_id, track_name, artist, created_at) VALUES (?,?,?,?,?)',wish, (err) => {
+    return  database.run('INSERT INTO wishes (spotify_id, party_id, guest_id, track_name, artist, created_at) VALUES (?,?,?,?,?,?)',wish, (err) => {
         cb(err)
+    });
+}
+
+const  deleteWish  = (id, cb) => {
+    return  database.run('DELETE from wishes WHERE id = ?',id, (err, row) => {
+        cb(err, row)
     });
 }
 
@@ -235,11 +241,55 @@ createGuestsTable();
 createInviteCodesTable();
 createWishesTable();
 
+router.post('/delete-song-wish', async (req, res) => {
+    // es fehlt: check if requesting user_id is really in party
+    if (jwt.verify(req.body.access_token, SECRET_KEY)) {
+        let decodedJWT = jwt.decode(req.body.access_token);
+        checkIfPartyOwner([], (err, row) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send("Server error!");
+            } else {
+                let isAdmin = false
+                for (let i=0; i<row.length; i++) {
+                    if (row[i].owner_id == decodedJWT.id && row[i].id == req.body.party_id) {
+                        isAdmin = true
+                        break;
+                    }
+                }
+                if (isAdmin) {
+                    console.log('is admin') 
+                    getWishesOfParty([req.body.party_id], (err, wishes) => {
+                        for (let i=0; i<wishes.length; i++) {
+                            if (wishes[i].spotify_id == req.body.spotify_id && wishes[i].party_id == req.body.party_id) {
+                                console.log('Found')
+                                deleteWish(wishes[i].id, (err) => {
+                                    if (err) {
+                                        console.log(err)
+                                        res.status(500).send("Server error!");
+                                    } else {
+                                        res.status(200).send({ status: "ok", spotify_id: req.body.spotify_id });
+                                    }
+                                })
+                            }
+                        }
+                    });
+                } else {
+                    console.log('is not admin')
+                    res.status(200).send({ "status": 'not-admin' });
+                }
+            } 
+        });
+    } else {
+        res.status(401).send("Server error!");
+    }
+});
+
 router.post('/wish-song', async (req, res) => {
         // es fehlt: check if requesting user_id is really in party
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        createSongWish([req.body.currentParty, decodedJWT.id, req.body.trackName, req.body.artist, moment().toString()], (err) => {
+        createSongWish([req.body.spotify_id, req.body.currentParty, decodedJWT.id, req.body.trackName, req.body.artist, moment().toString()], (err) => {
             if (err) {
                 console.log(err)
                 res.status(500).send("Server error!");
@@ -265,7 +315,9 @@ router.post('/get-wishes-of-party', async (req, res) => {
                     for (let i = 0; i < wishes.length; i++) {
                         if (wishes[i].party_id == req.body.party_id) {
                             songWishes.push({
+                                spotify_id: wishes[i].spotify_id,
                                 trackName: wishes[i].track_name,
+                                artist: wishes[i].artist,
                                 createdAt: wishes[i].created_at
                             });
                             songWishes = songWishes.sort((b, a) => {
@@ -327,6 +379,7 @@ router.post('/search', async (req, res) => {
             let tracks = []
             response.data.tracks.items.forEach((track) => {
                 tracks.push({
+                    spotify_id: track.data.id,
                     trackName: track.data.name,
                     artist: track.data.artists.items[0].profile.name
                 })
