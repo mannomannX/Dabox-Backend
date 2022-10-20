@@ -338,7 +338,7 @@ router.post('/get-wishes-of-party', async (req, res) => {
     }
 });
 
-router.post('/search', async (req, res) => {
+/*router.post('/search', async (req, res) => {
     let options
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         if (req.body.offset) {
@@ -394,7 +394,7 @@ router.post('/search', async (req, res) => {
     } else {
         res.status(401).send("Server error!");
     }
-});
+});*/
 
 router.post('/check-if-party-owner', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
