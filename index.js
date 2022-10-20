@@ -10,7 +10,7 @@ const {PNG} = require('pngjs');
 const jsqr = require('jsqr');
 var QRCode = require('qrcode');
 
-const SECRET_KEY = "secretkey23456";
+const SECRET_KEY = "jf191bg1664101gng18";
 
 const  app  =  express();
 const  router  =  express.Router();
