@@ -500,7 +500,7 @@ router.post('/de-mute-guest', (req, res) => {
 router.post('/get-guest-info', (req, res) => {
     if (jwt.verify(req.body.access_token, SECRET_KEY)) {
         let decodedJWT = jwt.decode(req.body.access_token);
-        //console.log('req.body.guest_id: ' + req.body.guest_id)
+        console.log('req.body.guest_id: ' + req.body.guest_id)
             getUserInfo(req.body.guest_id, (err, guest) => {
                 if (err) {
                     console.log(err)
