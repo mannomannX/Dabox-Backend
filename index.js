@@ -381,7 +381,8 @@ router.post('/search', async (req, res) => {
                 tracks.push({
                     spotify_id: track.data.id,
                     trackName: track.data.name,
-                    artist: track.data.artists.items[0].profile.name
+                    artist: track.data.artists.items[0].profile.name,
+                    imageUrl: track.data.albumOfTrack.coverArt.sources[1].url
                 })
             })
             console.log(tracks)
