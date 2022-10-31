@@ -787,17 +787,28 @@ router.post('/register', (req, res) => {
 
     const  password  =  bcrypt.hashSync(req.body.password);
 
-    createUser([name, email, password, profile_image], (err)=>{
-        if(err) return  res.status(500).send("Server error!");
-        findUserByEmail(email, (err, user)=>{
-            if (err) return  res.status(500).send('Server error!');  
-            const  expiresIn  =  24  *  60  *  60;
-            //const  expiresIn  =  60;
-            const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
-                expiresIn:  expiresIn
+    createUser([name, email, password, profile_image], (err) => {
+        if (err) {
+            if (err.code == 'SQLITE_CONSTRAINT') {
+                console.log('MailAlreadyTaken')
+                return res.status(200).send({ status: "MailAlreadyTaken" });
+            }
+            else {
+                console.log('Error')
+                return res.status(500).send("Server error!");
+            }
+        } else {
+            findUserByEmail(email, (err, user) => {
+                if (err) return res.status(500).send('Server error!');
+                console.log('USER:' + JSON.stringify(user))
+                const expiresIn = 24 * 60 * 60;
+                //const  expiresIn  =  60;
+                const accessToken = jwt.sign({ id: user.id }, SECRET_KEY, {
+                    expiresIn: expiresIn
+                });
+                res.status(200).send({ "user": user, "access_token": accessToken, "expires_in": expiresIn, status: "ok" });
             });
-            res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn, status: "ok" });
-        });
+        }
     });
 });
 
@@ -808,9 +819,9 @@ router.post('/login', (req, res) => {
     const  password  =  req.body.password;
     findUserByEmail(email, (err, user)=>{
         if (err) return  res.status(500).send('Server error!');
-        if (!user) return  res.status(404).send('User not found!');
+        if (!user) return  res.status(200).send({ status: 'User not found' });
         const  result  =  bcrypt.compareSync(password, user.password);
-        if(!result) return  res.status(401).send('Password not valid!');
+        if(!result) return  res.status(200).send({ status: 'Password not valid' });
 
         const  expiresIn  =  24  *  60  *  60;
         //const  expiresIn  =  60;
@@ -825,7 +836,7 @@ router.post('/check-login', (req, res) => {
     try {
         let decodedJWT = jwt.decode(req.body.access_token);
         console.log(decodedJWT);
-        let ablaufdatum = moment.unix(decodedJWT.exp).format();
+        let ablaufdatum = moment.unix(decodedJWT.exp).format(); 
         console.log(ablaufdatum);
         if (moment(ablaufdatum).isBefore(moment())) {
             console.log('is expired')
