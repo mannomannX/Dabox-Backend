@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "dev": "export NODE_ENV=development&&nodemon --inspect bin/www --exec \"node\""
   },
   "keywords": [],
   "author": "",
